@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Credit Card Checkout</title>
@@ -10,7 +10,43 @@
     </header>
     <main>
         <form action="https://request-inspector.glitch.me" method="POST">
+            <label for="cc_number">Credit Card Number:</label>
+            <input id="cc_number" name="cc_number" placeholder="Enter number" required
+                   type="text">
 
+            <label for="exp">Expiration date (yyyy-mm):</label>
+            <input id="exp" type="month" name="exp"
+                   min="2020-03" max="2025-12" required
+                   pattern="[0-9]{4}-[0-9]{2}">
+            <span class="validity"></span>
+
+            <label for="security_code">Security code:</label>
+            <input id="security_code" name="security_code" type="password" placeholder="Enter security code" required
+            maxlength="3" minlength="3">
+        <br><br>
+            <label for="name">Full name:</label>
+            <input id="name" name="name" placeholder="Enter name" required
+                   type="text"><br><br>
+
+            <label for="addy">Address:</label>
+            <input id="addy" name="addy" placeholder="Enter address" required
+                   type="text"><br><br>
+
+            <label for="city">City:</label>
+            <input id="city" name="city" placeholder="Enter city" required
+                   type="text">
+
+            <label for="state">State:</label>
+            <input id="state" name="state" placeholder="Enter state" required
+                   type="text">
+
+            <label for="zipcode">Zipcode:</label>
+            <input id="zipcode" name="zipcode" placeholder="Enter zipcode" type="text" minlength="5" maxlength="5" required>
+
+            <input id="keep" name="keep" type="checkbox" value="add-to-list" checked>
+            <label for="keep">Keep this credit card on file for future transactions</label>
+
+            <p><button type="submit">Buy Now!</button></p>
         </form>
     </main>
 
