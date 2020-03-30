@@ -1,5 +1,54 @@
-.fancy-header {
-    color: #1122f9;
+.heading {
+    text-align: center;
 
 }
 
+.heading h1 {
+    font-size: 3em;
+}
+
+h1, h2 {
+    text-decoration: underline;
+    color: #17729D;
+}
+
+body {
+    background-color: #BEC6C7;
+    font-family: 'Raleway', sans-serif;
+    background-image: url("../img/alphabet-2001974_1280.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 20%;
+    opacity: 0.8;
+}
+
+ul {
+    list-style-type: square;
+}
+
+table {
+    margin-bottom: 40px;
+}
+
+td, th {
+    padding-bottom: 40px;
+    padding-right: 30px;
+    font-weight: bold;
+}
+
+th {
+    text-decoration: underline;
+}
+
+a:link, a:visited {
+    color: #198b8C
+}
+
+a:hover {
+    color: #DB7093;
+}
+
+.table {
+    margin-top: 90px;
+}
