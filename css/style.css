@@ -9,18 +9,24 @@
 
 h1, h2 {
     text-decoration: underline;
-    color: #17729D;
+    /*color: #17729D;*/
+    /*color: #41826E*/
+    color: #266D6E;
 }
 
 body {
     background-color: #BEC6C7;
     font-family: 'Raleway', sans-serif;
-    background-image: url("../img/alphabet-2001974_1280.png");
+    background-image: url("../img/alphabet-2001974_1280.png"), url("../img/veridian-mountain_lake.jpeg");
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: 20%;
-    opacity: 0.8;
+    background-size: 12%;
+    opacity: 0.9;
+}
+
+body img {
+
 }
 
 ul {
