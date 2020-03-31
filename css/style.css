@@ -3,8 +3,10 @@
 
 }
 
-.heading h1 {
+.heading>h1 {
     font-size: 3em;
+    /*animation-duration: 3s;*/
+    /*animation-name: slidein;*/
 }
 
 h1, h2 {
@@ -23,6 +25,25 @@ body {
     background-attachment: fixed;
     background-size: 12%;
     opacity: 0.9;
+
+}
+
+@keyframes slidein {
+    from {
+        margin-left: 100%;
+        width: 300%;
+    }
+
+    75% {
+        font-size: 300%;
+        margin-left: 25%;
+        width: 150%;
+    }
+
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
 }
 
 body img {
@@ -33,9 +54,18 @@ ul {
     list-style-type: square;
 }
 
+.table {
+    margin-left: 4.5em;
+}
+
 table {
     margin-bottom: 40px;
+    border: 1px solid;
 }
+
+/*table:hover {*/
+/*    color: red;*/
+/*}*/
 
 td, th {
     padding-bottom: 40px;
@@ -45,6 +75,7 @@ td, th {
 
 th {
     text-decoration: underline;
+
 }
 
 a:link, a:visited {
@@ -58,3 +89,8 @@ a:hover {
 .table {
     margin-top: 90px;
 }
+
+#img_4 {
+    margin-bottom: 140px;
+}
+
