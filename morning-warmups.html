@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Morning Warm Ups</title>
+</head>
+<body>
+    <script>
+        "use strict";
+
+        //Write a JS function that takes in a string input and returns
+        // true if the input is at least 8 characters in length. It should return false for all other string inputs.
+
+        function isAtLeastEightLong(str) {
+                if(str.length >= 8) {
+                    return true;
+                } else {
+                    return false;
+                }
+        }
+
+        //Also correct!
+
+        function isAtLeastEightLong(str) {
+            return str.length >= 8;
+        }
+
+
+
+        console.log(isAtLeastEightLong("cat"));
+        console.log(isAtLeastEightLong("AndrewBrought"));
+        console.log(isAtLeastEightLong("eight"));
+
+    </script>
+
+
+</body>
+</html>
