@@ -30,7 +30,7 @@ h1, h2 {
 
 body {
     /*background-color: #BEC6C7;*/
-    background-color: #EAF5F4;
+    /*background-color: #EAF5F4;*/
     font-family: 'Raleway', sans-serif;
     background-image: url("../img/alphabet-2001974_1280.png"), url("../img/veridian-mountain_lake.jpeg");
     background-position: center;
@@ -41,26 +41,30 @@ body {
 
 }
 
-@keyframes slidein {
-    from {
-        margin-left: 100%;
-        width: 300%;
-    }
+/*@keyframes slidein {*/
+/*    from {*/
+/*        margin-left: 100%;*/
+/*        width: 300%;*/
+/*    }*/
 
-    75% {
-        font-size: 300%;
-        margin-left: 25%;
-        width: 150%;
-    }
+/*    75% {*/
+/*        font-size: 300%;*/
+/*        margin-left: 25%;*/
+/*        width: 150%;*/
+/*    }*/
 
-    to {
-        margin-left: 0%;
-        width: 100%;
-    }
+/*    to {*/
+/*        margin-left: 0%;*/
+/*        width: 100%;*/
+/*    }*/
+/*}*/
+
+.section-one {
+    background-color: #EAF5F4;
 }
 
 .section-two {
-    /*background-color: #EAF5F4;*/
+    background-color: #EAF5F4;
 }
 
 .img-3 {
@@ -71,7 +75,7 @@ ul {
     list-style-type: square;
 }
 
-.section-three {
+#section-three {
     background-color: #051C1A;
 }
 
@@ -83,25 +87,26 @@ ul {
     font-size: 2em;
     text-decoration: none;
     text-align: center;
-    margin-left: 37%;
-    width: 25%;
-    background-color: #147066;
+    margin-left: auto;
+    margin-right: auto;
+    /*width: 25%;*/
+    /*background-color: #147066;*/
     padding: 12px 0;
     border-radius: 5px;
 
 }
 
-.table {
+/*.table {*/
     /*margin-left: 4.5em;*/
-}
+/*}*/
 
-table {
-    /*text-align: center;*/
-    margin-bottom: 40px;
-    border: 1px solid;
-    float: left;
-    background-color: #147066;
-}
+/*table {*/
+/*    !*text-align: center;*!*/
+/*    margin-bottom: 40px;*/
+/*    border: 1px solid;*/
+    /*float: left;*/
+
+/*}*/
 
 /*table:hover {*/
 /*    color: red;*/
@@ -116,8 +121,40 @@ td {
 }
 
 
-.table-1 {
-    margin-left: 26.5%;
+table#table-1 {
+    text-align: center;
+    color: whitesmoke;
+    width: 22%;
+    margin-left: 15%;
+    /*margin-right: 15%;*/
+    float: left;
+    background-color: #147066;
+    border: 1px solid;
+    padding-bottom: 15%;
+}
+
+table#table-2 {
+    color: whitesmoke;
+    text-align: center;
+    width: 22%;
+    /*margin-left: 15%;*/
+    /*margin-right: 15%;*/
+    float: left;
+    background-color: #147066;
+    border: 1px solid;
+    padding-bottom: 15%;
+}
+
+table#table-3 {
+    color: whitesmoke;
+    text-align: center;
+    width: 22%;
+    /*margin-left: 15%;*/
+    margin-right: 15%;
+    float: left;
+    background-color: #147066;
+    border: 1px solid;
+    padding-bottom: 15%;
 }
 
 .last-td {
