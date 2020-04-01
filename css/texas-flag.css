@@ -1,0 +1,44 @@
+img {
+    width: 45%;
+    height: 45%;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50%;
+    /*width: 50%;*/
+}
+
+#box-1 {
+
+    /*color: whitesmoke;*/
+    background-color: navy;
+    height: 660px;
+    width: 33.3%;
+    margin: 0;
+    float: left;
+
+    /*background-color: red;*/
+    /*height: 100%;*/
+    /*width: 33%;*/
+    /*margin: 0;*/
+    /*position: relative;*/
+
+}
+
+#box-2 {
+    /*background-color: whitesmoke;*/
+    height: 330px;
+    width: 66.3%;
+    margin: 0;
+    float: left;
+}
+
+#box-3 {
+    background-color:red;
+    height: 330px;
+    width: 66.3%;
+    margin: 0;
+    float: left;
+
+}
