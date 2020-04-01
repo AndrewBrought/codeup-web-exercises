@@ -9,6 +9,18 @@
     /*animation-name: slidein;*/
 }
 
+.vision-title {
+    color: whitesmoke;
+    /*font-family: 'Lato', sans-serif;*/
+    font-size: 2em;
+    text-align: center;
+    margin-left: 25%;
+    width: 50%;
+    padding: 10px 0;
+    background-color: #198b8C;
+    border-radius: 5px;
+}
+
 h1, h2 {
     text-decoration: underline;
     /*color: #17729D;*/
@@ -17,7 +29,8 @@ h1, h2 {
 }
 
 body {
-    background-color: #BEC6C7;
+    /*background-color: #BEC6C7;*/
+    background-color: #EAF5F4;
     font-family: 'Raleway', sans-serif;
     background-image: url("../img/alphabet-2001974_1280.png"), url("../img/veridian-mountain_lake.jpeg");
     background-position: center;
@@ -46,40 +59,73 @@ body {
     }
 }
 
-body img {
+.section-two {
+    /*background-color: #EAF5F4;*/
+}
 
+.img-3 {
+    margin-bottom: 5%;
 }
 
 ul {
     list-style-type: square;
 }
 
+.section-three {
+    background-color: #051C1A;
+}
+
+.table-header {
+    color: whitesmoke;
+    font-family: 'Lato', sans-serif;
+    /*text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);*/
+    text-shadow: 2px 2px #000;
+    font-size: 2em;
+    text-decoration: none;
+    text-align: center;
+    margin-left: 37%;
+    width: 25%;
+    background-color: #147066;
+    padding: 12px 0;
+    border-radius: 5px;
+
+}
+
 .table {
-    margin-left: 4.5em;
+    /*margin-left: 4.5em;*/
 }
 
 table {
+    /*text-align: center;*/
     margin-bottom: 40px;
     border: 1px solid;
+    float: left;
+    background-color: #147066;
 }
 
 /*table:hover {*/
 /*    color: red;*/
 /*}*/
 
-td, th {
+td {
+    color: whitesmoke;
+    text-align-last: center;
     padding-bottom: 40px;
     padding-right: 30px;
     font-weight: bold;
 }
 
-th {
-    text-decoration: underline;
 
+.table-1 {
+    margin-left: 26.5%;
+}
+
+.last-td {
+    padding-left: 25%;
 }
 
 a:link, a:visited {
-    color: #198b8C
+    color: #198b8C;
 }
 
 a:hover {
@@ -90,7 +136,36 @@ a:hover {
     margin-top: 90px;
 }
 
+.col-header {
+    padding-top: 1em;
+    font-style: italic;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
+}
+
+.price {
+    font-size: 1.5em;
+}
+
 #img_4 {
     margin-bottom: 140px;
 }
 
+.grid-1-5:hover {
+    background-color: #53455b;
+    *zoom: 1;
+    /*filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF53455B', endColorstr='#FF201D22');*/
+    /*background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzUzNDU1YiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzIwMWQyMiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');*/
+    background-size: 100%;
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #53455b), color-stop(100%, #126295));
+    /*background-image: -moz-linear-gradient(top, #53455b 0%, #201d22 100%);*/
+    /*background-image: -webkit-linear-gradient(top, #53455b 0%, #201d22 100%);*/
+    /*background-image: linear-gradient(to bottom, #53455b 0%, #201d22 100%);*/
+    border-top: 2px solid #ec7a37;
+    border-bottom: 2px solid #ff4f69;
+    box-shadow: 0px 0px 10px 0px #323232;
+    transform: scale(1.025);
+    z-index: 2;
+}
+.footer {
+   clear: left;
+}
