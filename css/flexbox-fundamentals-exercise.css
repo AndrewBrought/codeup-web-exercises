@@ -35,21 +35,21 @@ h2, h3 {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
+
 }
 
 section {
     flex-wrap: wrap;
     display: flex;
-    align-items: center;
+    /*align-items: center;*/
 }
 
 section:nth-of-type(1) {
     height: 3em;
     background: lightgreen;
-    /*flex-direction: row;*/
     justify-content: space-between;
-    /*align-items: center;*/
+    align-items: center;
 }
 section:nth-of-type(1) div:last-child {
     align-self: flex-start;
@@ -59,7 +59,6 @@ section:nth-of-type(1) div:last-child {
     background: fuchsia;
     width: 3em;
     height: 1em;
-   /*something here*/
 }
 
 .purple-box:nth-of-type(1) {
@@ -77,8 +76,9 @@ section:nth-of-type(1) div:last-child {
 }
 
 section:nth-of-type(3) {
-    justify-content: flex-end;
-    flex-direction: row;
+    /*justify-content: flex-end;*/
+    align-items: center;
+
 }
 
 section:nth-of-type(3) h3 {
@@ -94,17 +94,11 @@ section:nth-of-type(3) h3 {
     margin: .5em;
 }
 
-section:nth-of-type(4) {
-    flex-direction: row;
-    justify-content: space-evenly;
-    /*I added this instead*/
-}
-
 .large-brown-box {
     height: 5em;
     width: 5em;
     background: brown;
-    /*This was supposed to be the edited area*/
+    flex-grow: 1;
 }
 
 .large-brown-box:nth-of-type(2) {
@@ -124,6 +118,7 @@ section:nth-of-type(5) {
 section:nth-of-type(6) {
     background: coral;
     height: 14em;
+    align-items: center;
     justify-content: space-between;
 }
 
