@@ -37,12 +37,12 @@ h2, h3 {
     flex-direction: column;
     justify-content: space-evenly;
 
+
 }
 
 section {
-    flex-wrap: wrap;
     display: flex;
-    /*align-items: center;*/
+    flex-wrap: wrap;
 }
 
 section:nth-of-type(1) {
@@ -53,7 +53,7 @@ section:nth-of-type(1) {
 }
 
 section:nth-of-type(1) div:last-child {
-    align-self: flex-start;
+   align-self: flex-start;
 }
 
 .purple-box {
@@ -63,11 +63,11 @@ section:nth-of-type(1) div:last-child {
 }
 
 .purple-box:nth-of-type(1) {
-    flex-grow: 2;
+    flex-grow: 3;
 }
 
 .purple-box:nth-of-type(2) {
-    flex-grow: 1;
+    flex-grow: 2;
 }
 
 .blue-box {
@@ -77,14 +77,11 @@ section:nth-of-type(1) div:last-child {
 }
 
 section:nth-of-type(3) {
-    /*justify-content: flex-end;*/
     align-items: center;
-
 }
 
 section:nth-of-type(3) h3 {
     flex-grow: 1;
-
 }
 
 .orange-circle {
@@ -107,20 +104,21 @@ section:nth-of-type(3) h3 {
 }
 
 section:nth-of-type(5) {
-    justify-content: space-evenly;
+   justify-content: space-evenly;
 }
 
 .yellow-box {
     background: yellow;
     width: 2em;
     height: 2em;
+
 }
 
 section:nth-of-type(6) {
     background: coral;
     height: 14em;
-    align-items: center;
     justify-content: space-between;
+    align-content: space-around;
 }
 
 .grey-box {
