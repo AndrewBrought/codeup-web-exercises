@@ -9,29 +9,25 @@
 </head>
 <body>
 
-<nav class="top-nav">
-    <ul class="nav">
-        <li id="sound-nav" class="nav-item"><a class="nav-link" href="#">Sounds</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">iPlayer</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Weather</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Sport</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">News</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-    </ul>
-</nav>
+    <nav class="top-nav">
+        <ul class="nav">
+            <li id="sound-nav" class="nav-item"><a id="sounds" class="nav-link" href="#">Sounds</a></li>
+            <li class="nav-item"><a id="iplayer" class="nav-link" href="#">iPlayer</a></li>
+            <li class="nav-item"><a id="weather" class="nav-link" href="#">Weather</a></li>
+            <li class="nav-item"><a id="sport" class="nav-link" href="#">Sport</a></li>
+            <li class="nav-item"><a id="news" class="nav-link" href="#">News</a></li>
+            <li class="nav-item"><a id="home" class="nav-link" href="#">Home</a></li>
+            <li class="header-logo"><img id="header-logo" src="img/BBC%20Block.png" alt="bbc-logo"></li>
+        </ul>
+    </nav>
 
-<header>
-    <section>
-        <div>
-            <img id="header-img" src="img/BBC%20Block.png">
-        </div>
-        <div class="banner">
-            <div class="banner-text">404 Not found</div>
-        </div>
-    </section>
-</header>
-<main>
-    <section>
+    <header>
+            <div class="banner">
+                <div class="banner-text">404 Not Found</div>
+            </div>
+    </header>
+<main class="main">
+    <section class="section">
         <div>
             <img id="mice-img" src="img/bbc%20mice.gif">
         </div>
@@ -47,8 +43,25 @@
                 <button id="btn" type="submit"><i class="fa fa-search"></i></button>
             </form>
         </div>
+        <div class="bbc-homepage"><a href="#">BBC Homepage</a></div>
     </section>
 </main>
+<footer>
+    <nav class="footer-nav">
+        <ul class="footer">
+            <li><a href="#">Terms Of Use</a></li>
+            <li><a href="#">About the BBC</a></li>
+            <li><a href="#">Private Policy</a></li>
+            <li><a href="#">Cookies</a></li>
+            <li><a href="#">Accessibility Help</a></li>
+            <li><a href="#">Parental Guidance</a></li>
+            <li><a href="#">Contact the BBC</a></li>
+            <li><a href="#">Get Personalized Newsletters</a></li>
+        </ul>
+        <div class="copyright"><span>Copyright © BBC.</span> The BBC is not responsible for the content of external sites.
+            <a id="read-about" href="#"> Read about our approach to external linking.</a></div>
+    </nav>
+</footer>
 
 
 </body>

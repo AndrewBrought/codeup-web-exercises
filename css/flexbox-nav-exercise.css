@@ -5,13 +5,14 @@ body {
     margin: 0;
 }
 nav {
-    background: #333333;
+    background-image: linear-gradient(to bottom right, red, grey);
 }
 ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
+    align-items: center;
 }
 nav a {
     text-decoration: none;
@@ -21,10 +22,25 @@ nav a {
     padding: 1em;
 }
 nav a:hover {
-    background: black;
+    color: blue;
+    background-color: whitesmoke;
+    -webkit-filter: grayscale(50%) blur(2px);
+    filter: grayscale(50%) blur(1px);
+    transition: .4s ease-in-out;
 }
 
 .logo {
+
+    font-size: 1.8em;
+    padding-bottom: .1em;
     margin: auto;
-    flex-basis: 10em;
+    flex-basis: 7em;
+}
+
+.main {
+    display: flex;
+}
+
+.section {
+    display: flex;
 }
