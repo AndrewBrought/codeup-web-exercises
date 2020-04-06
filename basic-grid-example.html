@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grid Fundamentals</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            text-align: center; /* this works only if there is one grid container inside of this parent*/
+            /*Can use this instead of justify-center.  This also re-adjusts the parent container to the same size of child grid*/
+        }
+
+        main {
+            background: lightgreen;
+            /*display: grid; !*First, setting the grid*!*/
+
+            display: inline-grid;
+
+            width: 600px;
+            height: 600px;
+            grid-template-columns: 1fr 2fr 1fr; /*these are fractional units*/
+            grid-template-rows: 1fr 1fr 3fr;
+
+            /*grid-template-columns: 200px 200px 200px;  !*Second, setting the column size*!*/
+            /*grid-template-rows: 200px 200px 200px;  !*Third, setting the row size*!*/
+
+            /*grid-template-columns: repeat(3, 200px);*/
+            /*grid-template-rows: repeat(3, 200px); !* this is short hand way fro writing out*!*/
+
+            /*grid-template-columns: 3em 200px 200px;*/
+            /*grid-template-rows: 200px 200px 20%; !*the combination of these breaks the grid out of it's container*!*/
+
+            /*grid-template-columns: 200px 200px;*/
+            /*grid-template-rows: 200px 200px 200px; !* Here the grid becomes implicit on the bottom (unspecified)*!*/
+            /*justify-content: center; !*center's the items that comprise the grid *!*/
+            grid-column-gap: 2em;
+            grid-row-gap: 1em;
+
+
+        }
+        main div {
+            font-size: 2em;
+            color: white;
+            background: grey;
+            border: 2px solid black; /*Notice, border is just added for lecture purposes, a grid does not have to look like it*/
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+    <div>9</div>
+</main>
+</body>
+</html>

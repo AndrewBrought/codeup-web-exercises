@@ -19,6 +19,7 @@ nav a {
     color: white;
     font-family: Verdana;
     display: inline-block;
+    width: 100%;
     padding: 1em;
 }
 nav a:hover {
@@ -30,11 +31,12 @@ nav a:hover {
 }
 
 .logo {
-
+    display: flex;
     font-size: 1.8em;
     padding-bottom: .1em;
     margin: auto;
-    flex-basis: 7em;
+    align-items: center;
+    /*flex-basis: 7em;*/
 }
 
 .main {
