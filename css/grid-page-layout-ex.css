@@ -15,22 +15,14 @@ h4 {
     margin: 0;
 }
 
-h1 {
-    font-size: 4em;
-    margin: 0;
-}
+h1 {font-size: 4em}
 
-h2 {
-    font-size: 3em;
-    margin: 0;
-}
+h2 {font-size: 3em}
 
-h3 {
-    font-size: 2em;
-}
+h3 {font-size: 2em}
 
 p, a, button {
-    font-family: "Roboto";
+    font-family: "Roboto", serif;
 }
 
 button {
@@ -41,6 +33,10 @@ button {
     padding: 1em;
     border-radius: .2em;
     margin: 2em 0;
+}
+
+button:hover {
+    cursor: pointer;
 }
 
 
@@ -70,21 +66,13 @@ header {
     font-size: inherit;
 }
 
-section:nth-of-type(1) {
-    grid-area: section-1;
-}
+section:nth-of-type(1) {grid-area: section-1}
 
-section:nth-of-type(2) {
-    grid-area: section-2;
-}
+section:nth-of-type(2) {grid-area: section-2}
 
-section:nth-of-type(3) {
-    grid-area: section-3;
-}
+section:nth-of-type(3) {grid-area: section-3}
 
-section:nth-of-type(4) {
-    grid-area: section-4;
-}
+section:nth-of-type(4) {grid-area: section-4}
 
 footer {
     grid-area: footer;
@@ -134,18 +122,17 @@ a {
 }
 
 .background-img {
-    background: url("../img/instruments.jpg") no-repeat center center fixed;
-    background-size: cover;
+    background: url("../img/instruments.jpg") no-repeat center/cover fixed;
     grid-area: 1 / 1 / 2 / -1;
-    min-height: 100vh;
+    height: 100vh;
     opacity: .4;
     z-index: -1;
 }
 
 .footer-links {
     display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
+    /*flex-direction: row;*/
+    /*justify-content: flex-end;*/
     list-style: none;
     align-self: flex-end;
 }

@@ -1,0 +1,103 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.wrapper {
+    margin: 1em;
+    display: grid;
+    height: 80vh;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1em;
+    grid-template-areas:
+            " d-1  d-1  d-1  d-1 "
+            " d-2  d-3  d-4  d-4"
+            " d-2  d-5  d-5  d-6"
+            " d-2  d-7  d-8  d-9"
+            " d-2  d-10 d-10 d-10";
+}
+
+.div-1 {
+    /*font-weight: bold;*/
+    font-size: 1.5em;
+    color: white;
+    padding: 1em;
+    grid-area: d-1;
+    background-color: orange;
+}
+
+.div-2 {
+    /*font-weight: bold;*/
+    font-size: 1.5em;
+    color: white;
+    padding: 1em;
+    grid-area: d-2;
+    background-color: orange;
+}
+.div-3 {
+    /*font-weight: bold;*/
+    font-size: 1.5em;
+    color: white;
+    padding: 1em;
+    grid-area: d-3;
+    background-color: orange;
+}
+.div-4 {
+    /*font-weight: bold;*/
+    font-size: 1.5em;
+    color: white;
+    padding: 1em;
+    grid-area: d-4;
+    background-color: orange;
+}
+.div-5 {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: white;
+    padding: 1em;
+    grid-area: d-5;
+    background-color: orange;
+}
+.div-6 {
+    /*font-weight: bold;*/
+    font-size: 1.5em;
+    color: white;
+    padding: 1em;
+    grid-area: d-6;
+    background-color: orange;
+}
+.div-7 {
+    /*font-weight: bold;*/
+    font-size: 1.5em;
+    color: white;
+    padding: 1em;
+    grid-area: d-7;
+    background-color: orange;
+}
+.div-8 {
+    /*font-weight: bold;*/
+    font-size: 1.5em;
+    color: white;
+    padding: 1em;
+    grid-area: d-8;
+    background-color: orange;
+}
+.div-9 {
+    /*font-weight: bold;*/
+    font-size: 1.5em;
+    color: white;
+    padding: 1em;
+    grid-area: d-9;
+    background-color: orange;
+}
+.div-10 {
+    /*font-weight: bold;*/
+    font-size: 1.5em;
+    color: white;
+    padding: 1em;
+    grid-area: d-10;
+    background-color: orange;
+}

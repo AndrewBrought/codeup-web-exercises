@@ -1,0 +1,54 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.wrapper {
+    margin: 1em;
+    width: 80vw;
+    display: grid;
+    height: 80vh;
+    border: 1px solid white;
+    grid-template-columns: .6fr repeat(5, 13%) 1fr;
+    grid-template-rows: 1fr repeat(2, 35%) 1fr;
+    grid-gap: 1em;
+    grid-template-areas:
+        " header   header   header   header   header   header  header"
+        " nav      nav      article  article  article  article  ads"
+        " nav      nav      article  article  article  article  ads"
+        " nav      nav      article  article  article  article  ads"
+        " nav      nav        footer   footer footer   footer  footer";
+}
+
+header {
+    padding: 1em;
+    grid-area: header;
+    background-color: yellow;
+}
+
+nav {
+    padding: 1em;
+    grid-area: nav;
+    background-color: yellow;
+}
+
+article {
+    padding: 1em;
+    grid-area: article;
+    background-color: yellow;
+}
+
+aside {
+    padding: 1em;
+    grid-area: ads;
+    background-color: yellow;
+}
+
+footer {
+    padding: 1em;
+    grid-area: footer;
+    background-color: yellow;
+}

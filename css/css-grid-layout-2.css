@@ -1,0 +1,59 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.wrapper {
+    margin: 1em;
+    display: grid;
+    height: 80vh;
+    border: 1px solid white;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1em;
+    grid-template-areas:
+            " header   header   header   header  "
+            " nav     article   article  article "
+            " nav     article   article  article "
+            " nav     article   article  article "
+            " nav     article   article  article "
+            " nav     article   article  article "
+            " nav     article   article  article "
+            " nav     article   article  article "
+            " nav     ads       ads      ads "
+            " footer  footer    footer   footer  ";
+}
+
+header {
+    padding: 1em;
+    grid-area: header;
+    background-color: greenyellow;
+    display: flex;
+}
+
+nav {
+    padding: 1em;
+    grid-area: nav;
+    background-color: greenyellow;
+}
+
+article {
+    padding: 1em;
+    grid-area: article;
+    background-color: greenyellow;
+}
+
+aside {
+    padding: 1em;
+    grid-area: ads;
+    background-color: greenyellow;
+}
+
+footer {
+    padding: 1em;
+    grid-area: footer;
+    background-color: greenyellow;
+    display: flex;
+}
