@@ -1,0 +1,10 @@
+.container .jumbotron {
+    background-image: url("../img/pizza.png");
+
+}
+
+.a-welcome {
+    background:rgba(255,255,255, 0.7);
+    padding: 0;
+}
+

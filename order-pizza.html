@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pizza World</title>
+    <script src="https://kit.fontawesome.com/66d77e56aa.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/custom-pizza.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Pizza World</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Order Online <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Menu<span class="sr-only">(current)</span></a>
+            </li>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Zip code" aria-label="Search">
+                <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search stores near you!</button>
+            </form>
+        </ul>
+        <div class="nav-item">
+            <a class="nav-link text-secondary" href="#"><i class="far fa-user"></i> Sign up</a>
+        </div>
+    </div>
+</nav>
+<main class="container">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid text-center">
+            <h1 class="display-4 a-welcome">Welcome to Pizza World!</h1>
+        </div>
+    </div>
+    <section>
+        <h2>Build your pizza!</h2>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><span class="badge badge-secondary">1</span> Size and crust</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><span class="badge badge-secondary">2</span> Cheese and Sauce</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false"><span class="badge badge-secondary">3</span> Toppings</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="card text-left">
+                    <div class="card-header bg-primary text-white">
+                        Choose size and crust
+                    </div>
+                    <div class="card-body">
+                        <div class="card" style="width: auto;">
+                            <div class="card-header">
+                                Hand tossed
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Garlic seasoned crust with a rich, buttery taste.</li>
+                                <li class="list-group-item">
+                                    <input type="radio" id="size-ten">
+                                        <label for="size-ten">
+                                            Size(10")
+                                         </label>
+                                </li>
+                                <li class="list-group-item"><input type="radio" id="medium-garlic">
+                                    <label for="medium-garlic">
+                                        Medium(12")
+                                    </label></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card" style="width: auto;">
+                            <div class="card-header">
+                                Crispy Thin
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Thin enough for optimum crispy to crunchy ratio.</li>
+                                <li class="list-group-item"><input type="radio" id="medium-thin">
+                                    <label for="medium-thin">
+                                        Medium(12")
+                                    </label>
+                                </li>
+                                <li class="list-group-item"><input type="radio" id="large-thin">
+                                    <label for="large-thin">
+                                        Large(14")
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-footer text-muted text-right">
+                        <a href="#" class="btn btn-primary">Next Step ></a>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="card text-left">
+                    <div class="card-header bg-primary text-white">
+                        Choose Cheese and Sauce
+                    </div>
+                    <div class="card-body">
+                        <div class="card" style="width: auto;">
+                            <div class="card-header">
+                                Cheese
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="cheese">How Much?</label>
+                                            <select class="form-control" id="cheese">
+                                                <option>none</option>
+                                                <option>Light</option>
+                                                <option>Regular</option>
+                                                <option>Heavy</option>
+                                            </select>
+                                        </div>
+                                    </form>
+                                </li>
+                                <li class="list-group-item"></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card" style="width: auto;">
+                            <div class="card-header">
+                                Sauce
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="sauce-quantity">What Type?</label>
+                                            <select class="form-control" id="sauce-quantity">
+                                                <option>none</option>
+                                                <option>Tomato</option>
+                                                <option>Robust</option>
+                                                <option>Pesto</option>
+                                                <option>Cream of Wheat</option>
+                                            </select>
+                                        </div>
+                                    </form>
+                                </li>
+                                <li class="list-group-item"></li>
+                            </ul>
+                        </div>
+                        <div class="card" style="width: auto;">
+                            <div class="card-header">
+                                Sauce
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="sauce-quantity">How Much?</label>
+                                            <select class="form-control" id="sauce-quantity">
+                                                <option>none</option>
+                                                <option>Light</option>
+                                                <option>Regular</option>
+                                                <option>Heavy</option>
+                                            </select>
+                                        </div>
+                                    </form>
+                                </li>
+                                <li class="list-group-item"></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-footer text-muted text-right">
+                        <a href="#" class="btn btn-primary">Next Step ></a>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                <div class="card text-center">
+                    <div class="card-header">
+                        Featured
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                    <div class="card-footer text-muted text-right">
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

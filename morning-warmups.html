@@ -153,8 +153,31 @@ function returnEvenOddMessage(num) {
         return "is odd";
     }
 }
-    console.log(returnEvenOddMessage(2));
-    console.log(returnEvenOddMessage(7));
+    console.log(returnEvenOddMessage(2), "is even");
+    console.log(returnEvenOddMessage(7), 'is odd');
+    console.log(returnEvenOddMessage(173));
+    console.log(returnEvenOddMessage(256));
+
+   // Return True for function that passes a whole number, false if not:
+    // MY SOLUTION:
+    // function isWholeNum(num) {
+    //     if (Number.isInteger(num)) {
+    //         return true;
+    //     } else {
+    //         return false;
+    //     }
+    // }
+
+    // DAVID's SOLUTION:
+    function isWholeNum(num) {
+        return num === Math.round(num);
+    }
+
+    console.log(isWholeNum(4), 'true');
+    console.log(isWholeNum(1.2), 'false');
+    console.log(isWholeNum(.5), 'false');
+    console.log(isWholeNum(-7), 'true');
+    console.log(isWholeNum("Dude"), 'false');
 
 
 </script>
