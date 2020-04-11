@@ -1,0 +1,169 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: inline-block;
+    width: 100%;
+}
+
+.alert-info {
+    display: flex;
+    justify-content: center;
+    font-size: 4vh;
+    background-color: lightblue;
+    padding: 2em;
+    align-items: center;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    font-size: 10vh;
+
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 2em;
+    font-size: 4vh;
+}
+
+.nav-links li {
+    text-align: center;
+    width: 100%;
+    background-color: lightgrey;
+    margin: .2em;
+    padding: 2em;
+}
+
+.header-img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.main {
+    display: inline-block;
+    margin: 1em;
+}
+
+.sub-section {
+   display: inline-block;
+    margin: 1em;
+    font-style: italic;
+}
+
+footer {
+    margin-left: 1em;
+    display: flex;
+    flex-direction: row;
+}
+
+
+#social-media-links ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+}
+
+#social-media-links a {
+    padding: 0 .5em 0 .5em;
+}
+
+#social-media-links a:hover {
+    font-size: 2em;
+    color: greenyellow;
+}
+
+
+/* --DESKTOP VIEW--  */
+
+@media screen and (min-width: 600px) {
+    .hidden-on-desktop {
+        display: none;
+        z-index: -1;
+    }
+
+   main {
+
+       grid-template-areas:
+                 "h1  nav"
+                 "img img"
+                 "main sub "
+                 "footer footer ";
+
+       grid-template-columns: 3fr 1fr;
+       width: 90%;
+       margin: auto;
+   }
+
+   h1 {
+       grid-area: h1;
+       display: flex;
+       justify-content: flex-start;
+       align-items: center;
+       margin: 2em 0 0 2em;
+       padding: 0;
+       font-size: 6vh;
+
+   }
+
+   nav {
+       grid-area: nav;
+       display: flex;
+       margin-top: -5em;
+
+
+   }
+
+    .nav-links {
+        grid-area: nav;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        margin-left: auto;
+
+        background-color: white;
+        font-size: 1.8em;
+        padding: 0;
+
+
+    }
+
+    .nav-links li {
+        list-style-type: none;
+        background-color: white;
+        /*padding: 10px;*/
+        font-size: .5em;
+        /*margin: 0;*/
+
+    }
+
+   .header-img {
+       grid-area: img;
+
+   }
+
+   .main {
+       grid-area: main;
+       margin: 1em;
+   }
+
+   .sub-section {
+       grid-area: sub;
+       margin: 1em;
+   }
+
+   footer {
+       grid-area: footer;
+       margin: 1em;
+   }
+
+
+}
