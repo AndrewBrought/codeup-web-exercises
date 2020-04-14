@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pre-Work JS</title>
+</head>
+<body>
+<script>
+    "use strict";
+
+    // Don't change the next two lines!
+    // These creates two variables for you:
+    //     one with the colors of the rainbow
+    //     another with a single random color value
+    var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+    var color = colors[Math.floor(Math.random()*colors.length)];
+
+    var favorite = 'blue'; // TODO: change this to your favorite color from the list
+
+    // TODO: Create a block of if/else statements to check for every color except indigo and violet.
+    // if (color === 'red') {
+    //         console.log('apples are red');
+    // } else if (color === 'orange') {
+    //         console.log('orange you glad this is not a joke?');
+    // } else if (color === 'yellow') {
+    //         console.log('you were all yellow')
+    // } else if(color === 'green') {
+    //         console.log('green like kale')
+    // } else if (color === 'blue') {
+    //         console.log('blue as the skies in Texas')
+    // } else {
+    //         console.log('This color is not my thang')
+    // }
+
+
+    // TODO: When a color is encountered log a message that tells the color, and an object of that color.
+    //       Example: Blue is the color of the sky.
+
+    // TODO: Have a final else that will catch indigo and violet.
+    // TODO: In the else, log: I do not know anything by that color.
+
+    // TODO: Using the ternary operator, conditionally log a statement that
+    //       says whether the random color matches your favorite color.
+    (color === favorite) ? console.log(color + " is my favorite!") : console.log(color + " is not my thang bro...");
+
+    //Use inline JavaScript to create a while loop that uses console.log() to create the output shown below.
+    // 2
+    // 4
+    // 8
+    // 16
+    // 32
+    // 64
+    // 128
+    // 256
+    // 512
+    // 1024
+    // 2048
+    // 4096
+    // 8192
+    // 16384
+    // 32768
+    // 65536
+
+    var i = 1;
+    while (i < 65536) {
+        i = i * 2
+        console.log(i);
+    }
+    // Use inline JavaScript to create a for loop that uses
+    // console.log to create the output shown below.
+    // 100
+    // 95
+    // 90
+    // 85
+    // 80
+    // 75
+    // 70
+    // 65
+    // 60
+    // 55
+    // 50
+    // 45
+    // 40
+    // 35
+    // 30
+    // 25
+    // 20
+    // 15
+    // 10
+    // 5
+
+    for (var i = 100; i > 0; i-=5) {
+        console.log(i);
+    }
+
+
+
+</script>
+
+</body>
+</html>

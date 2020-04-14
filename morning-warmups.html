@@ -179,6 +179,29 @@ function returnEvenOddMessage(num) {
     console.log(isWholeNum(-7), 'true');
     console.log(isWholeNum("Dude"), 'false');
 
+    //Write a JS funstion that takes in two numbers and returns the larger value. Assume all
+// inputs are numbers.
+    //MY SOLUTION
+    // function greaterThan(x, y) {
+    //     if (x > y) {
+    //         return x;
+    //     } else {
+    //         return y;
+    //     }
+    // }
+
+    //DAVID's SOLUTION:
+    function greaterThan(n1, n2) {
+        if (n1 >= n2) {
+            return n1;
+        } else {
+            return n2;
+        }
+    }
+
+    console.log(greaterThan(2, 5), 'y = 5');
+    console.log(greaterThan(82, 5), 'x = 82');
+    console.log(greaterThan(7, 8), 'y = 8');
 
 </script>
 
