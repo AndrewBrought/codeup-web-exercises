@@ -89,9 +89,123 @@
     // 10
     // 5
 
-    for (var i = 100; i > 0; i-=5) {
-        console.log(i);
+    // for (var i = 100; i > 0; i-=5) {
+    //     console.log(i);
+    // }
+
+    var random = Math.floor((Math.random()*50)+1)
+
+    console.log('Random odd number to skip is: ' + random);
+
+    for (var i = 1; i < 100; i++) {
+        if (i % 2 === 0) {
+            continue;
+        }
+        if (random === i) {
+        console.log('Yike!! Skipping number: ' + i);
+    } else {
+            console.log('Here is an odd number: ' + i);
+        }
+        if (i >= 49) {
+            break;
+        }
     }
+
+
+    // console.log('Random odd number to skip is: ' + random);
+    //
+    // for (var i = 0; i < 50; i++) {
+    //     if (i % 2 !== 0)
+    //     console.log('Here is an odd number: ' + i)
+    //     if (i === random) {
+    //         continue;
+    //         console.log('Yikes! Skipping number: ' + i)
+    //
+    //     }
+    //
+    // }
+
+    // You have rented some movies for your kids: The little mermaid (for 3 days),
+    // Brother Bear (for 5 days, they love it), and Hercules (1 day, you don't know yet ' +
+    // 'if they're going to like it). If price for a movie per day is $3, how much will
+    // you have to pay?
+    var littleMermaidRentalDays = 3;
+    var brotherBearRentalDays = 5;
+    var herculesRentalDays = 1;
+    var totalMovieDays = littleMermaidRentalDays + brotherBearRentalDays + herculesRentalDays;
+    var priceOfSingleMoviePerDay = 3;
+    var totalPrice = priceOfSingleMoviePerDay * totalMovieDays;
+    console.log(totalPrice);
+
+    // Suppose you're working as a contractor for 3 companies: Google, ' +
+    // 'Amazon and Facebook, they pay you a different rate per hour. Google ' +
+    // 'pays $400, Amazon $380, and Facebook $350. How much will you receive ' +
+    // 'in payment for this week? You worked 10 hours for Facebook, 6 hours for ' +
+    // 'Google and 4 hours for Amazon.
+
+    var googleHourlyRate = 400;
+    var amazonHourlyRate = 380;
+    var facebookHourlyRate = 350;
+
+    var googleTotalHours = 6;
+    var amazonTotalHours = 4
+    var facebookTotalHours = 10;
+
+    var googleWeeklyTotalDollars = googleHourlyRate * googleTotalHours;
+    console.log(googleWeeklyTotalDollars);
+
+    var amazonWeeklyTotalDollars = amazonHourlyRate * amazonTotalHours;
+    console.log(amazonWeeklyTotalDollars);
+
+    var facebookWeeklyTotalDollars = facebookHourlyRate * facebookTotalHours;
+    console.log(facebookWeeklyTotalDollars);
+
+    var weeklyTotalPayDollars = googleWeeklyTotalDollars + amazonWeeklyTotalDollars + facebookWeeklyTotalDollars;
+    console.log(weeklyTotalPayDollars);
+
+    // A student can be enrolled in a class only if the class is not full and the class
+    // schedule does not conflict with her current schedule.
+    var classScheduleNotFull = true;
+    var currentScheduleConflictFree = true;
+    var numberOfStudents = 6;
+    var classFull = 10;
+
+    function enrollInClass() {
+    if(numberOfStudents < classFull) {
+        if(classScheduleNotFull && currentScheduleConflictFree) {
+            return enrollInClass;
+        }
+        }
+    }
+
+    // A product offer can be applied only if a person buys more than 2 items,
+    //     and the offer has not expired. Premium members do not need to buy a
+    // specific amount of products.
+    var membership = premiumMember;
+
+    function grantOffer() {
+    if(items > 2, offer !== expired) {
+        return grantOffer;
+    } else {
+        if(membership === true) {
+            return grantOffer;
+        } else {
+            return offerUnavailable;
+        }
+    }
+    }
+    // OVER thought the last two... Should've been looking for something more simple, like this:
+    // Jahziel's ex:
+    // var itemsPurchased = 5; 
+    // var offerNotExpired = true; 
+    // var premiumMember = false 
+    // var productOffered = ((itemsPurchased > 2) || premiumMember) && offerNotExpired;
+
+
+    
+    // product.length(2) >= premiumMember;
+
+    // password.indexOf(" ") && username.indexOf(" ") !== " ";
 
 
 
