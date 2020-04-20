@@ -28,13 +28,13 @@ alert('Cool, ' + favColor + ' is my favorite color too!');
 // var priceOfSingleMoviePerDay = 3;
 // alert('It is $3 to rent a single movie, per day.  You are renting ' + totalMovieDays + ' days worth of movies.');
 // var totalPrice = priceOfSingleMoviePerDay * totalMovieDays;
-// alert('Your total movie rental price is $' + totalPrice);
+// alert('Your total movie rental price is $' + totalPrice.toFixed(2));
 
 // Problem 2:
 
-// var googleHourlyRate = 400;
-// var amazonHourlyRate = 380;
-// var facebookHourlyRate = 350;
+// var googleHourlyRate = Number(prompt('What is your Google hourly rate?'));
+// var amazonHourlyRate =  Number(prompt('What is your Amazon hourly rate?'));
+// var facebookHourlyRate =  Number(prompt('What is your Facebook hourly rate?'));
 //
 // var googleTotalHours = Number(prompt('Thank you for your hard work here at Google! Please log your weekly total hours in numeric form:'));
 // var amazonTotalHours = Number(prompt('Thank you for your hard work here at Amazon! Please log your weekly total hours in numeric form:'));
@@ -52,20 +52,20 @@ alert('Cool, ' + favColor + ' is my favorite color too!');
 // console.log(facebookWeeklyTotalDollars);
 //
 // var weeklyTotalPayDollars = googleWeeklyTotalDollars + amazonWeeklyTotalDollars + facebookWeeklyTotalDollars;
-// alert('Thank you for a great week and dedicated service!  You\'ve worked a total of ' + totalHours + 'hrs this week! Your weekly income is $' + weeklyTotalPayDollars + '. Have a great weekend!');
+// alert('Thank you for a great week and dedicated service!  You\'ve worked a total of ' + totalHours.toFixed(2) + 'hrs this week! Your weekly income is $' + weeklyTotalPayDollars + '. Have a great weekend!');
 // console.log(weeklyTotalPayDollars);
 
 // Problem 3:
 
-// var classScheduleNotFull = true;
-// var currentScheduleConflictFree = confirm('If your current schedule is open for this class, please continue, otherwise hit \"cancel\"');
-// var addStudent = Number(prompt('If you intend to register, enter (numerically): 1'));
-// var totalStudents = 25;
-// var registered = 12;
-// var currentTotal = registered + addStudent;
-// var classNotFull =  totalStudents >= currentTotal;
-// console.log(classNotFull);
-// alert('Congratulations! You are the ' + currentTotal + 'th student. You are confirmed for class!');
+var classScheduleNotFull = true;
+var currentScheduleConflictFree = confirm('If your current schedule is open for this class, please continue, otherwise hit \"cancel\".');
+var addStudent = Number(prompt("If you intend to register, please enter \'1\' (numerically) to add yourself."));
+var totalStudents = 25;
+var registered = 12;
+var currentTotal = registered + addStudent;
+var classNotFull =  totalStudents >= currentTotal;
+console.log(classNotFull);
+alert('Congratulations! You are the ' + currentTotal + 'th student. You are confirmed for class!');
 
 
 // Problem 4:
