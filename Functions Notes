@@ -1,0 +1,69 @@
+================================= FUNCTIONS
+
+What is a function?
+    - the paragraphs of code
+    - a way of containing one or more statements (sentences)
+    - may take in data (input) and may return data (output)
+    - may or may not have specifically defined input and (or) output
+
+Basic syntax?
+
+    function doSomething() {
+      // stmt 1...;
+      // stmt 2...;
+      // etc...
+    }
+
+    function getIngredient(nameIngredient, location) {
+
+    }
+
+    function getJelly(amountOfJelly, typeOfJelly) {
+      getIngredient("jelly", "fridge");
+      // etc...
+    }
+
+    function getPeanutButter(amountOfPeanutButter, isCrunchy) {
+      getIngredient("Peanut Butter", true);
+      // etc...
+    }
+
+    function makeSandwhich() {
+      getJelly();
+      getPeanutButter();
+      getBread();
+      setUpEnvironment();
+      assembleIngredients();
+      cleanUp();
+    }
+
+Importance of functions in JS?
+    -functions are objects
+    - functions are essential in organizing JS code
+    - proper use of functions will yield...
+        - cleaner code (less repetition)
+        - more readable code (abstracting functionality to simple names)
+        - more organized, modular, maintainable code
+
+    - functions in JS are especially powerful (first class citizens) and they may be...
+        1) assigned to a variable
+        2) passed to another function
+        3) returned as a value from another function
+
+Best practice?
+    - keep the purpose of a function specific
+    - use descriptive and action/verb-oriented function names
+    - try to limit functions to five or so lines of code
+
+
+*** See Examples ***
+
+Extra exercises...
+
+    https://java.codeup.com/extra-exercises/javascript/functions/
+
+https://www.w3resource.com/javascript-exercises/javascript-basic-exercises.php
+https://the-winter.github.io/codingjs/
+https://www.codewars.com/
+https://www.hackerrank.com/
+https://www.codingame.com 
