@@ -1,4 +1,8 @@
+(function() {  //Beginning of global scope
+
+
 "use strict";
+
 
 /**
  * TODO:
@@ -100,7 +104,7 @@ console.log(tip);
 console.log(billTotal);
 var tipTotal = calculateTip(billTotal, tip) ;
 var total = tipTotal + billTotal;
-alert("Thank you so much for dinning with us!  Your total with tip is $" + total);
+alert("Thank you so much for dinning with us!  Your total with tip is $" + total.toFixed(2));
 
 /**
  * TODO:
@@ -122,3 +126,4 @@ function applyDiscount(originalPrice, discountPercent) {
 }
 console.log(applyDiscount(8, .2));
 
+})(); //End of Global Scope
