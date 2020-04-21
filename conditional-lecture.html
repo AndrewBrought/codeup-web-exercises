@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Conditional Logic</title>
+</head>
+<body>
+<script>
+    "use strict";
+
+    // function isItANumber(parameter) {
+    //     if(typeof parameter === "number") {
+    //         return "yep! That's a number!"
+    //     } else {
+    //         return "nope! That ain't a number!";
+    //     }
+    // }
+    //
+    // console.log(isItANumber(7));
+    // console.log(isItANumber("seven"));
+    // console.log(isItANumber(true));
+    //
+    // var ownACow = false;
+    // var ownAGoat = false;
+    //
+    // if(ownACow === true) {
+    //     //Get milk from cow.
+    // } else if (ownAGoat === true) {
+    //     // Get milk from goat.
+    // } else {
+    //     // Go to the store for milk.
+    // }
+    //
+    // function isThisThirtyFive(parameter) {
+    //     if(parameter === 35) {
+    //         return "Nailed it! That's thirty-five!"
+    //     } else if (parameter > 35) {
+    //         return "Whoooo, that's larger than a thirty-five!";
+    //     } else {
+    //         return "That's tinier than a 35 on it's birthday!";
+    //     }
+    // }
+    //
+    // console.log(isThisThirtyFive(34));
+    // console.log(isThisThirtyFive(35));
+    // console.log(isThisThirtyFive(36));
+    // console.log(isThisThirtyFive(35));
+    //
+    // // ==== TERNARY OPERATOR ======
+    //
+    // // var message = (booleanValue) ? "Operation was true." : "Operation was false.";
+    //
+    // var doWeHaveMilk = false;
+    // var action = (doWeHaveMilk) ? "Make a bowl of Honey Oats." : "Head to store for groceries.";
+    //
+    // console.log(action);
+
+    //  Ternary Expression:
+  function isItANumber(parameter) {
+      return (typeof parameter === "number") ? "Yep, that's a number!" : "Nope, that absolutely is not a number";
+  }
+
+  // SWITCH STATEMENT: A statement with multiple conditions that will trigger based on the value of a variable.
+
+  //   var color = prompt("What is your favorite color?").toLowerCase();
+  // switch(color) {
+  //     case "green":
+  //         alert("What a coincidence, that's my favorite!");
+  //         break;
+  //     case "orange":
+  //         alert("That's my brother's favorite color!");
+  //         break;
+  //     default:
+  //         alert(color + "is a bizarre color, my dude");
+  //         break;
+  //
+  // }
+
+  //   var animal = ;
+  // switch (animal) {
+  //     case "cow":
+  //         console.log("Milking my cow...it's whatever.");
+  //         break;
+  //     case "goat":
+  //         console.log("Milking my goat!");
+  //         break;
+  //     case "camel":
+  //         console.log("That's right!  Milking a camel!");
+  //         break;
+  //     default:
+  //         console.log("Is there a Ralph's around here?");
+  //         break;
+  // }
+
+
+  switch (prompt("What's your favorite sandwhich meat?").toLowerCase())  {
+      case "olive loaf":
+          alert("Congratulations! That's a bold choice sir!");
+          break;
+      case "brisket":
+          alert("Congratulations on making the right choice!");
+          break;
+      default:
+          alert("That's gross dude.  No one likes that...");
+          break; //Dont have to have a break at the bottom, but it's good syntax practice
+  }
+
+</script>
+</body>
+</html>
