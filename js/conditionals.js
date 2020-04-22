@@ -21,7 +21,7 @@
  */
 //  function analyzeColor(colorName) {
 //      if(colorName === "blue") {
-//          return "blue is the color of the sky";
+//          return "Blue is the color of the sky";
 //      } else if(colorName === "red") {
 //          return "Strawberries are red";
 //      } else if (colorName === "cyan") {
@@ -56,7 +56,28 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Refactor your above function to use a switch-case statement
  */
 
-// switch (prompt("Please share your favorite color with us")) {
+    // switch (color) {  // In this case, this is called the parameter
+    //     case "blue":
+    //         return "Blue like Kentucky bluegrass.";
+    //         break; //break statement
+    //     case "red":
+    //         return "Strawberries are red";
+    //         break;
+    //     case "cyan":
+    //         return "I don't know anything about cyan";
+    //         break;
+    //     default:
+    //         return "I don't know anything about " + color;
+    //         break;
+    //
+    // }
+
+
+// The better approach here is to just set var = prompt... and throw that variable name into analyze() and console.log...
+// In hindsight, this would have been MUCH easier and faster than re-writing the code.  WAKE uP!
+
+
+// switch (prompt("Please share your favorite color with us").toLowerCase()) {
 //     case "red":
 //         alert("Apples are red too!");
 //         break;
@@ -82,6 +103,8 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
 //         alert("I am sorry, I don't care for that color.  Please try again.");
 //         break;
 // }
+
+
 
 /**
  * TODO:
@@ -118,14 +141,18 @@ function calculateTotal(luckyNumber, totalAmount){
         return "I am sorry, you do not qualify for a discount at this time.  Your total is $" + totalAmount.toFixed(2);
     } else if (luckyNumber === 1) {
         return "Congrats!  Your discounted total is $" + (totalAmount - (.1 * totalAmount)).toFixed(2);
+        // return "Congrats!  Your discounted total is $" + (.9 * totalAmount).toFixed(2); Alternative way to write this is to multiple by the remaining %
     } else if(luckyNumber === 2) {
         return "Congrats!  Your discounted total is $" + (totalAmount - (.25 * totalAmount)).toFixed(2);
+        // return "Congrats!  Your discounted total is $" + (.75 * totalAmount).toFixed(2); -Alternate
     } else if(luckyNumber === 3) {
         return "Congrats!  Your discounted total is $" + (totalAmount - (.35 * totalAmount)).toFixed(2);
+        // return "Congrats!  Your discounted total is $" + (.65 * totalAmount).toFixed(2);  -Alternate
     } else if(luckyNumber === 4) {
         return "Congrats!  Your discounted total is $" + (totalAmount - (.5 * totalAmount)).toFixed(2);
+        // return "Congrats!  Your discounted total is $" + (.5 * totalAmount).toFixed(2); -Alternate
     } else {
-        return "Congratulations!  Your purchase amount is $" + (totalAmount -(1.0 * totalAmount)).toFixed(2) + " It's on us!";
+        // return "Congratulations!  Your purchase amount is $" + (1.0 * totalAmount).toFixed(2) + " It's on us!"; -Alternate
     }
 }
 
@@ -141,7 +168,7 @@ console.log(calculateTotal(2,100), '$75');
  * and alerts to display to the user what their lucky number was, what their
  * price before the discount was, and what their price after the discount is.
  */
-// Generate a random number between 0 and 6
+// Generate a random number between 0 and 5
 var luckyNumber = Math.floor(Math.random() * 6);
 
 // var totalAmount = Number(prompt("Thank you for shopping with us!  What was your total bill today?"));
@@ -177,9 +204,9 @@ var userNumber;
 
 function evenOdd(userNumber) {
     if(userNumber % 2 === 0) {
-        return "This number is even.";
+        return userNumber + "," + " This number is even.";
     } else{
-        return "This number is odd.";
+        return userNumber + "This number is odd.";
     }
 }
 
@@ -188,6 +215,8 @@ function numPlusHundred(userNumber) {
 }
 
 function positiveNegative(userNumber) {
+    //Alternatively could've said :
+    // if(userNumber > 0)
     if(Math.sign(userNumber) === 1) {
         return " Finally, your number is positive. Thanks for stopping by!";
     } else {
@@ -199,18 +228,41 @@ function positiveNegative(userNumber) {
 
 // userNumber = Number(prompt("Please enter a number:"));
 
+// DAVID'S SOLUTION =======
+// This works but since he returned alerts, you would need to refactor your returns in the individual functions:
 
+// BIG TAKE AWAY is that we needed to use isNaN to determine whether or not this was a string or number.
 
-function numberCheck(userNumber) {
-    if(confirm("Would you like to enter a number?") !== true) {
-        return "Thanks for stopping by!";
-    } else if (isNaN(userNumber = Number(prompt("Please enter a number:")))) {
-        return "This is not a number!";
+function numberGame() {
+    if(confirm("Would you like to play a game with me?")) {
+        var userNum = parseFloat(prompt("Gimme a number."));
+        if (!isNan(userNum)) {  //This is allowing the alerts to pass after determining that the userNum is a number...
+            alert(evenOdd(userNum));
+            alert(userNum + " plus 100 is equal to: " + numPlusHundred(userNum));
+            alert(positiveNegative(userNum));
+        } else {
+            alert("You're no fun..."); //This is running if the User says 'cancel' to the 'Confirm' message.
+        }
     } else {
-    return evenOdd(userNumber) + " " + numPlusHundred(userNumber) + " " + positiveNegative(userNumber);
+        alert("You're no fun..."); //This is run if userNum is not a number
     }
 }
-alert(numberCheck(userNumber));
+
+numberGame();
+
+
+// ==== MY SOLUTION =====
+
+// function numberCheck() {
+//     if(confirm("Would you like to enter a number?") !== true) {
+//         return "Thanks for stopping by!";
+//     } else if (isNaN(userNumber = Number(prompt("Please enter a number:")))) {
+//         return "This is not a number!";
+//     } else {
+//     return evenOdd(userNumber) + " " + numPlusHundred(userNumber) + " " + positiveNegative(userNumber);
+//     }
+// }
+// alert(numberCheck(userNumber));
 
 // Problem I ran into here was trying to return multiple individual functions...Originally, I had the
 // functions listed underneath the last 'else' without a trigger of any sort...took me awhile to find a way around
