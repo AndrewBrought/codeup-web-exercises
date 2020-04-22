@@ -165,55 +165,57 @@ var luckyNumber = Math.floor(Math.random() * 6);
  * Can you refactor your code to use functions?
  * HINT: The way we prompt for a value could be improved
  */
+
+// var confirmation;
 var userNumber;
 
-function thisIsNotANumber(userNumber) {
-    if(typeof userNumber === "string") {
-        return false;
-    }
-}
+// function thisIsNotANumber(userNumber) {
+//     if(typeof userNumber === "string") {
+//         return ;
+//     }
+// }
 
-function isEven(userNumber) {
+function evenOdd(userNumber) {
     if(userNumber % 2 === 0) {
-        return true;
+        return "This number is even.";
     } else{
-        return false;
+        return "This number is odd.";
     }
 }
 
 function numPlusHundred(userNumber) {
-    return "Your number, " + userNumber + " plus 100 is " + (userNumber + 100);
+    return " Also, your number " + "( " + userNumber + " )" + " " + " + 100 =  " + (userNumber + 100) + "!";
 }
 
 function positiveNegative(userNumber) {
     if(Math.sign(userNumber) === 1) {
-        return "Your number is positive!";
+        return " Finally, your number is positive. Thanks for stopping by!";
     } else {
-        return "Your number is negative.";
+        return " Finally, your number is negative. Thanks for stopping by!";
     }
 }
 
-confirm("Would you like to enter a number?")
+// confirmation = confirm("Would you like to enter a number?")
 
-userNumber = Number(prompt("Please enter a number:"));
-
-ternary 1;
-ternary 2;
-ternary 3;
-ternary 4;
-
-// function numberCheck(userNumber) {
-//     if (thisIsNotANumber(userNumber) === true) {
-//         return "This is not a number!";
-//     } else {
-//         evenOdd(userNumber);
-//         numPlusHundred(userNumber);
-//         positiveNegative(userNumber);
-//     }
-// }
-// alert(numberCheck(userNumber));
+// userNumber = Number(prompt("Please enter a number:"));
 
 
+
+function numberCheck(userNumber) {
+    if(confirm("Would you like to enter a number?") !== true) {
+        return "Thanks for stopping by!";
+    } else if (isNaN(userNumber = Number(prompt("Please enter a number:")))) {
+        return "This is not a number!";
+    } else {
+    return evenOdd(userNumber) + " " + numPlusHundred(userNumber) + " " + positiveNegative(userNumber);
+    }
+}
+alert(numberCheck(userNumber));
+
+// Problem I ran into here was trying to return multiple individual functions...Originally, I had the
+// functions listed underneath the last 'else' without a trigger of any sort...took me awhile to find a way around
+// returning all at the same time in the same alert.  This solution works well for what I was looking for!!
+// Patience is a virtue!
 
 
 
