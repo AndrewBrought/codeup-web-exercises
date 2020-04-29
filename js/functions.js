@@ -127,3 +127,4 @@ function applyDiscount(originalPrice, discountPercent) {
 console.log(applyDiscount(8, .2));
 
 })(); //End of Global Scope
+

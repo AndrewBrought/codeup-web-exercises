@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Things To Check</title>
+</head>
+<body>
+
+<!--Define a function named concat that takes in two input arguments. If both arguments are strings, then return the concatenated result. If two numbers are provided, then return the string concatenation of each set of numerals.-->
+
+<!--concat("code", "up")                // "codeup"-->
+<!--concat("connect", 4)                // "connect4"-->
+<!--concat("hello", "world")            // "helloworld"-->
+<!--concat(4, 2)                        // "42"-->
+<!--concat(true, true)                  // "truetrue"-->
+
+
+<!--Define a function named addOne that takes in a single input. If the input is a number or a numeric string, return the value plus one.-->
+<!--addOne(0)                    // 1-->
+<!--addOne(2)                    // 3-->
+<!--addOne(-5)                   // -4-->
+<!--addOne(5.789)                // 6.789-->
+<!--addOne(Infinity)             // Infinity-->
+<!--addOne("2")                  // 3-->
+<!--addOne("0")                  // 1-->
+<!--addOne("banana")             // NaN-->
+<!--addOne(true)                 // NaN-->
+<!--addOne(NaN)                  // NaN-->
+
+<script>
+    "use strict";
+
+    // function concat(a, b) {
+    //     return "".concat(a, b)
+    // }
+    //
+    // console.log(concat(4, 2));
+
+    function concat(a, b) {
+        return "" + a + b;
+    }
+
+</script>
+
+
+</body>
+</html>
