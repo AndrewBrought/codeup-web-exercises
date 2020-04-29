@@ -2,7 +2,8 @@
 
 var i = 1;
 while (i < 65536) {
-    i = i * 2;
+    // i = i * 2; //Should be the same
+    i *= 2;
     console.log(i);
 }
 
@@ -21,8 +22,8 @@ var purchase;
     console.log("I have " + totalCones + " cones to sell today!");
 do {
    purchase = Math.floor(Math.random() * 5) + 1;
-    var newTotal = totalCones -= purchase;
-    console.log(purchase + ' more cones sold!');
+    var newTotal = totalCones -= purchase; //the New total is my iterator
+    console.log(purchase + ' cones sold!');
     if(newTotal === 0){
         console.log("Yay! I sold them all!");
         break;

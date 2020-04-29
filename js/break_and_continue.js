@@ -24,14 +24,6 @@
 // }
 
 
-    var userInput;
-
-while(isNaN(userInput) || userInput > 50 || userInput < 0 || userInput % 2 === 0 || userInput === undefined){
-    userInput = prompt("Please provide an odd number between 1 - 50: ");
-    if(userInput % 2 !== 0){
-        break;
-    }
-}
 
 // while(true) {
 //     if(userInput === false || userInput > 50 || userInput < 0 || userInput % 2 === 0 || userInput === undefined){
@@ -41,7 +33,6 @@ while(isNaN(userInput) || userInput > 50 || userInput < 0 || userInput % 2 === 0
 //     }
 // }
 
-console.log('Number to skip is: ' + userInput);
 // for (var i = 1; i < 50; i = i++) {
 //         if (i % 2 === 0) {
 //             continue;
@@ -56,14 +47,37 @@ console.log('Number to skip is: ' + userInput);
 //         }
 //     }
 
-for(var i = 1; i < 50; i += 2) {
-    // if(i % 2 === 0){
-    //     //  //This was creating an infinite loop
-    //     // continue;
-    // }
+// for(var i = 1; i < 50; i += 2) {
+//     // if(i % 2 === 0){
+//     //     //  //This was creating an infinite loop because I was iterating by 2 instead of by one, so the number was ALWAYS even
+//     //     // continue;
+//     // }
+//     if(i === parseFloat(userInput)){
+//         console.log("Yikes!! Skipping " + i)
+//        continue;
+//     }
+//     console.log(i);
+// }
+
+
+var userInput;
+while(isNaN(userInput) || userInput > 50 || userInput < 0 || userInput % 2 === 0 || userInput === undefined){
+    userInput = prompt("Please provide an odd number between 1 - 50: ");
+    if(userInput % 2 !== 0){
+        break;
+    }
+}
+
+
+console.log('Number to skip is: ' + userInput);
+
+for(var i = 1; i < 50; i += 1) {
+    if (i % 2 === 0){
+        continue;
+    }
     if(i === parseFloat(userInput)){
         console.log("Yikes!! Skipping " + i)
-       continue;
+        continue;
     }
-    console.log(i);
+    console.log("Here's an odd number " + i);
 }
