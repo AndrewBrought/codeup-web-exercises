@@ -95,3 +95,5 @@ console.log(doMath(multiply, 2, 2));
 // Write a function named divide(a, b) that returns a divided by b
 
 // Write a function named remainder(a, b) that returns the remainder after dividing a by b
+
+//
