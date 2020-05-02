@@ -160,9 +160,24 @@ for(var i = 0; i < books.length; i += 1){
      *   `showBookInfo` function.
      */
 
-    function createBook(){
+    function createBook(title, firstName, lastName){
+        var book ={};
 
+        book.title = title;
+       book.author = {firstName, lastName};
+            return book = {title: title, author: {firstName, lastName}};
     }
+console.log(createBook("Pride and Prejudice", "Jane", "Austin"));
 
+    console.log(books.push(createBook("Pride and Prejudice", "Jane", "Austin")));
+
+    function showBookInfo(object){
+        for(var i = 0; i < object.length; i += 1){
+            var x = i;
+            console.log("Book # " + [++x] + "\n" + object[i].title + "\n" + object[i].author.firstName + " " + object[i].author.lastName + "\n");
+        }
+    }
+    showBookInfo(createBook("Pride and Prejudice", "Jane", "Austin"));
+    showBookInfo(books);
 
 })();
