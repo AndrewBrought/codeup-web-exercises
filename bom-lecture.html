@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BOM Lecture</title>
+</head>
+<body>
+    <h1>BOM</h1>
+    <script>
+        (function(){ //Start of IIFE
+
+      // var i = 1;
+      // var pillow = "MyPillow";
+      // var arr = [1,2,3];
+      //
+      // console.log(window);
+      // BOM = browser object model
+      //Window object is a global object in JS
+        //Can access methods of the window object by conole.log-ging it
+
+        // alert("hi, regiester for my site!");
+        // window.alert("You really should register for my site...");
+
+        // //when scoped inside of IIFE we are protecting our global variables from being accessible in the window object and therefore, being accessible by users.
+
+        //WRITING JS CODE THAT CAN RUN AFTER A SET AMOUNT oF TIME, ONCE, OR MULTIPLE TIMES:
+
+        // SET-INTERVAL METHOD -method allows code to be executed at a specified time interval. The specified code will continue executing at the given interval until the method clearInterval() is called.
+
+        //Two parameters for the setInterval method
+        //1: callback function or a defined function (handler)
+        //2: The time.  The amount of time - in milliseconds - before the code runs again.
+
+        //How to clear the interval ID:
+        //1. - MUST set your setInterval method to a variable.  This is because the return of your setInterval method is an interval ID.
+        //2. - Define the stop point. (clearInterval(intervalID)) - clear interval needs a to take in a parameter to point to what to stop
+        var intervalID = setInterval(function(){
+            var yesNo = confirm("Do you like websites chronicling the news surrounding the murder hornets?");
+            if(yesNo) {
+                alert("I know you just wanted to stop hearing about the murder hornets.  I don't blame you, honestly.");
+                clearInterval(intervalID);
+            }
+        }, 5000);
+
+        //Could be used on a banking app that wants to check on users looking at sensitive info after a certain amount of elapsed time
+        //Real World Type of Application
+        // var registerForMyWebzone = setInterval(function(){
+        //     if(confirm("Hey, register for my website's mailing list!")){
+        //         var userEmail = prompt("What is your email?");
+        //         clearInterval(registerForMyWebzone);
+        //     }
+        // }, 5000);
+
+
+        //When passing in a pre-defined function into another function - it is important to not pass in the function itself - to include () - but just the name of the function - which will pass the function definition...
+
+        //==== ANOTHER EXAMPLE ====
+// var x =1;
+// var runThreeTimes = setInterval(function(){
+//     alert("Fun times ahead this year!  Be sure to register with our newspaper for more information on GloboCo!");
+//     if(x === 3){
+//         clearInterval(runThreeTimes);
+//     } else {
+//         x++;
+//     }
+// }, 4500);
+
+// ======  SetTimeout - similar to setInterval - but only meant to happen once: ======
+        // Typically used as a reminder
+        // setTimeout(function(){
+        //     alert("CONGRATULATIONS! YOU WON!");
+        // }, 9000);
+        //
+        // // ANOTHER EX:
+        // function alertAdBlock() {
+        //     alert("Hey, stop using AdBlocker!");
+        // }
+        //
+        // setTimeout(alertAdBlock, 4500);
+        //
+
+        // window.location = "http://www.google.com"; // can Also be a relative pathway
+
+            if(confirm("Did you make an error?")) {
+                location.reload();
+                // would only break out of this by saying 'cancel' or 'no'
+            }
+            //Can use this location.reload to reload the page to give the user the chance to experience that page again
+            //if we want to force a reload from the serve, clear the cache, we can return true.
+            //Marked for deprication happens when you call a method or function that's built in and it has a line through it...that means that there is a new alternative to this that will be coming soon.
+            //location.reload()
+
+
+        })(); // End of IIFE
+    </script>
+</body>
+</html>
