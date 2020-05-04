@@ -26,28 +26,14 @@
 
         detonationTimer--;
     }, 1000);
-    //=====REFERENCE NOTES:
-    // var intervalID = setInterval(function(){
-    //     var yesNo = confirm("Do you like websites chronicling the news surrounding the murder hornets?");
-    //     if(yesNo) {
-    //         alert("I know you just wanted to stop hearing about the murder hornets.  I don't blame you, honestly.");
-    //         clearInterval(intervalID);
-    //     }
-    // }, 5000);
 
-    // var updateTimerID = setInerval(function(){
-    //     var yesNo = confirm("Would you like to defuse the bomb?!");
-    //     if(true){
-    //         return updateTimer();
-    //         clearInterval(updateTimerID);
-    //     }
-    // }, 1000);
 
     // TODO: When this function runs, it needs to
     // cancel the interval/timeout for updateTimer()
     function defuseTheBOM() {
         if(detonationTimer > 0){
-            location.reload();
+            confirm("Whew! That was close!");
+            clearInterval(updateTimerID);
         }
     }
 
