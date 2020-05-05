@@ -268,7 +268,91 @@ function returnEvenOddMessage(num) {
     // console.log(isMultipleOfFive(55), true);
 
 //  TERNARY OPERATOR
-    var
+
+
+    // 5-5-20 Warm-up
+// Create a function that takes in a array input and returns true if one of the elements is a number that matches the number of total elements in the array.
+var first = [1];
+// Example output: true
+// Example input: ['bob', 3, false]
+// Example output: true
+var second = [{'a': 'hello'}, 10, true];
+// Example output: false
+var third = ['5', {'a': 'hello'}, 30, true, null];
+// Example output: true
+
+
+//  YOU GOT IT!  **NOTE: It did not specify to find a number type meaning not looking for strings...
+    function arrayComparison(arr){
+        for (var i = 0; i < arr.length; i += 1){
+            if(typeof parseFloat(arr[i]) === "number"){
+                return Number(arr[i]) === arr.length;
+            }
+        }
+    }
+
+console.log(arrayComparison(first));
+console.log(arrayComparison(second));
+console.log(arrayComparison(third));
+
+    // === JUSTIN's SOLUTION ===
+    // function checkForLengthInArr(arr){
+    //     for (var i = 0; i < arr.length; i += 1 ){
+    //         if (arr[i] === arr.length){
+    //             return true;
+    //         }
+    //     }
+    //     return false;
+    // }
+    // ** ALTERNATIVE SOLUTION:
+    function checkForLengthInArr(arr) {
+        return arr.includes(arr.length);
+    }
+
+// console.log(checkForLengthInArr([1]));
+// console.log(checkForLengthInArr([1]));
+// console.log(checkForLengthInArr(['5', {'a': 'hello'}, 30, true, null]));
+
+//FUNCTION TO CHECK CLASS LIST:
+var arrClass = ["ex-1", "match", "ex-3", "ex-4"];
+var arrPersonal = ["ex_1", "match", "ex_3", "ex_4"];
+var a = [1, 2, 3, 5];
+var b = [1, 2, 3, 5];
+
+// function checkForAssignments(arr1, arr2) {
+    // var newArr = []
+    // for (var i = 0; i < arr1.length; i++) {
+    //     for(var x = 0; x <= arr1[i].length; x++){
+    //         if(arr1[i] === arr2[x]){
+    //             newArr.push(arr1[i] + " " + arr2[x] + " -Match");
+    //         } else {
+    //             newArr.push(" No Match");
+    //         }
+    //     }
+    //     return newArr;
+    // }
+
+    // if length is not equal
+    // comapring each element of array
+//     var compArr = [];
+//     for (var i = 0; i < arr1.length; i++) {
+//         if (arr1[i] === arr2[i]) {
+//             compArr.push(arr1[i] + " = " + arr2[1] + " -Match!");
+//         } else {
+//             compArr.push(" -Not a Match");
+//         }
+//
+//     }
+// }
+
+var diffIndex = a.diff( b );
+console.log( diffIndex );
+
+
+//  Why is my i greyed out as an iterator?
+
+// console.log(checkForAssignments(a, b);
+
 
 </script>
 
