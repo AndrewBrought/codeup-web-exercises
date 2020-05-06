@@ -372,6 +372,36 @@ console.log(checkForAssignments(arrClass, arrPersonal));
 
 // console.log(checkForAssignments(a, b);
 
+// Write a javascript function that takes in a number and returns the number raised to the power of four. If any argument is passed into the function that is not a number, return false.
+
+    function returnPowerOfFour(num){
+        if(typeof num === "number"){
+            return Math.pow(num, 4);
+        } else {
+            return false;
+        }
+    }
+    // DAVID's SOLUTION:
+function raisedByPowerOfFour(num){
+        if (!isNaN(num)){
+            return num ** 4;
+        } else {
+            return false;
+        }
+}
+
+
+console.log(raisedByPowerOfFour(4));
+console.log(raisedByPowerOfFour("Geoff"));
+console.log(raisedByPowerOfFour(true));
+console.log(raisedByPowerOfFour(NaN));
+
+
+console.log(returnPowerOfFour(2));
+console.log(returnPowerOfFour("hello"));
+console.log(returnPowerOfFour('7'));
+console.log(returnPowerOfFour(8));
+
 
 </script>
 
