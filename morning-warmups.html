@@ -305,19 +305,19 @@ console.log(arrayComparison(third));
     //     return false;
     // }
     // ** ALTERNATIVE SOLUTION:
-    function checkForLengthInArr(arr) {
-        return arr.includes(arr.length);
-    }
+    // function checkForLengthInArr(arr) {
+    //     return arr.includes(arr.length);
+    // }
 
 // console.log(checkForLengthInArr([1]));
 // console.log(checkForLengthInArr([1]));
 // console.log(checkForLengthInArr(['5', {'a': 'hello'}, 30, true, null]));
 
 //FUNCTION TO CHECK CLASS LIST:
-var arrClass = ["ex-1", "match", "ex-3", "ex-4"];
-var arrPersonal = ["ex_1", "match", "ex_3", "ex_4"];
+var arrClass = ["welcome.html", "github.html", "style.css", "ex-4"];
+var arrPersonal = ["welcome_html", "github.html", "style.css", "ex_4","ex-5", "ex_6"];
 var a = [1, 2, 3, 5];
-var b = [1, 2, 3, 5];
+var b = [1, 4, 3, 5];
 
 // function checkForAssignments(arr1, arr2) {
     // var newArr = []
@@ -334,20 +334,39 @@ var b = [1, 2, 3, 5];
 
     // if length is not equal
     // comapring each element of array
-//     var compArr = [];
-//     for (var i = 0; i < arr1.length; i++) {
-//         if (arr1[i] === arr2[i]) {
-//             compArr.push(arr1[i] + " = " + arr2[1] + " -Match!");
-//         } else {
-//             compArr.push(" -Not a Match");
-//         }
+function checkForAssignments(arr1, arr2) {
+    for (var i = 0; i < arr1.length; i++) {
+        if(arr2.length)
+        if (arr1[i] === arr2[i]) {
+          console.log("Match! ");
+          continue;
+        } else {
+            console.log(arr2[i] + " " + arr1[i]);
+        }
+    }
+    // if (arr1.sort().join(',') === arr2.sort().join(',')) {
+    //     console.log('same members');
+        // } else {
+        //
+        //     arr1.filter(arr1Item => !arr2.includes(arr1Item));
+        // }
+    // }
+    // _.difference(arr1, arr2);
+}
+
+console.log(checkForAssignments(arrClass, arrPersonal));
+// checkForAssignments(a,b);
+// function checkForAssignments(array1, array2){
+//     // console.log(concatArr);
+//     var concatArr = array1.concat(array2);
+//         return concatArr.splice(0, concatArr.length, ...(new Set(concatArr)));
 //
-//     }
 // }
-
-var diffIndex = a.diff( b );
-console.log( diffIndex );
-
+// console.log(checkForAssignments(a,b));
+// var diffIndex = a.diff( b );
+// console.log( diffIndex );
+//
+// _.isEqual(a.sort(), b.sort()) => true
 
 //  Why is my i greyed out as an iterator?
 
