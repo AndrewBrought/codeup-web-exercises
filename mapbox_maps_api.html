@@ -15,41 +15,63 @@
 
 </head>
 <body>
-
+<!--Create a new file named mapbox_maps_api.html and add a map using the next steps.-->
+<!--Create a marker on your map of the exact location of your favorite restaurant set the zoom to allow for best viewing distance.-->
+<!--Refactor your code to display at least three of your favorite restaurants with information about each. Create an array of objects with information about each restaurant to accomplish this. Use a .forEach() loop rather than a for loop.-->
 
     <div id='map'></div>
+<!--    <h3 id="title">Hello From Naples!</h3>-->
+<!--//  BUTTON -->
+<!--    <button id="btn1">Click for Ideas</button>-->
+
     <script src="js/keys.js"></script>
     <script src="js/mapbox-geocode-utils.js"></script>
-
     <script>
-    // (function(){ //IIfE Start
-    mapboxgl.accessToken = mapboxKey;
-    var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v9',
-        zoom: 18,
-        center: [14.263316, 40.850024]
 
-    });
-    var marker = new mapboxgl.Marker({
-        draggable: true
-    })
-        .setLngLat([14.263316, 40.850024])
-        .addTo(map)
 
-    var popup = new mapboxgl.Popup()
-        .setLngLat([14.263316, 40.850024])
-        .setHTML("<h1>L'Antica Pizzeria da Michele</h1>")
-        .setMaxWidth("200px")
-        .addTo(map);
-    function onDragEnd() {
-        var lngLat = marker.getLngLat();
-        coordinates.style.display = 'block';
-        coordinates.popup =
-            'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
-    }
+// <!--Generate a map that shows the city with your favorite restaurant using geocoding.-->
+    // mapboxgl.accessToken = mapboxKey;
+    // var map = new mapboxgl.Map({
+    //     container: 'map',
+    //     style: 'mapbox://styles/mapbox/streets-v9',
+    //     zoom: 12,
+    //     center: [-98.4916, 40.850024]
+    //
+    // });
+<!--Redraw the map of the above location at zoom levels 5, 15, and 20. Do this by simply changing the value of zoom level where the map properties are initially set and refresh the page to see the changes. Can the zoom be changed programmatically after the initial map is drawn?-->
+    // function relocate() {
+    //     // map.zoomOut({offset: [ -95.7128906, 37.0902405]});
+    //     map.setZoom(15);
+    //     map.setCenter([14.263316, 40.850024]);
+    //     map.setStyle("mapbox://styles/mapbox/satellite-streets-v11");
+    // }
+    // setTimeout(relocate, 5000);
 
-    marker.on('dragend', onDragEnd);
+//     var marker = new mapboxgl.Marker({
+//         draggable: true
+//     })
+//         .setLngLat([14.263316, 40.850024])
+//         .addTo(map)
+//
+// <!--Create a popup with the name of the restaurant.-->
+// <!--Make sure the info window does not display until the marker has been clicked on.-->
+//     var popup = new mapboxgl.Popup();
+//     //Create Popup and give it some definition
+//     popup.setHTML('<h3>L\'Antica Pizzeria da Michele</h3>')
+//     // We can attach popup to map OR marker
+//     marker.setPopup(popup)
+//         .setLngLat([14.263316, 40.850024])
+//         // .setMaxWidth("100px")
+//         .addTo(map);
+
+    // function onDragEnd() {
+    //     var lngLat = marker.getLngLat();
+    //     coordinates.style.display = 'block';
+    //     coordinates.popup =
+    //         'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
+    // }
+    //
+    // marker.on('dragend', onDragEnd);
 
 
     //NAPLES ADDRESS:
@@ -61,25 +83,82 @@
     // });
 
     // })(); //IIFE End
-    //For the last step in the exercise, an example array of restaurant objects might look like this...
-    // var restaurants = [
-    // {
-    //     name: 'Silo',
-    //         address: 'Silo: Elevated Cuisine, San Antonio, TX',
-    //     message: 'It\'s great!'
-    // },
-    // {
-    //     name: 'Chama Gaucha Steakhouse',
-    //         address: 'Chama Gaucha Steakhouse, San Antonio, TX',
-    //     message: 'Too good!'
-    // },
-    // {
-    //     name: 'Tarka Indian Kitchen',
-    //         address: 'Tarka Indian Kitchen, San Antonio, TX',
-    //     message: 'Awesome!'
-    // }
-    // ];
 
+    //For the last step in the exercise, an example array of restaurant objects might look like this...
+    mapboxgl.accessToken = mapboxKey;
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        zoom: 11,
+        center: [-98.4916, 29.4252]
+
+    });
+
+    var restaurants = [
+
+    {
+        name: 'WingStop',
+        address: '502 Embassy Oaks Ste 126, San Antonio, TX 78216',
+        message: 'Delicious!'
+    },
+    {
+        name: 'El Jarro de Arturo',
+        address: '13421 San Pedro Ave, San Antonio, TX 78216',
+        message: 'Family Staple!'
+    },
+    {
+        name: 'India Oven',
+        address: '1031 Patricia #106, San Antonio, TX 78213',
+        message: 'Best Indian Food!!'
+    }
+    ];
+
+    // 1. log the name of each restaurant
+    // 2. use geocoding, log the coordinates of each
+    // 3. add markers for each coordinate
+    // 4. add popups to each marker with HTML containing the restaurant name and message
+
+
+    // STEP 2: HERE, we are cycling through each restaurant address and then passing the address to mapbox to geocode the address.
+    // THIS IS HOW WE GET AN ADDRESS's COORDINATES
+        restaurants.forEach(function (restaurant){
+            geocode(restaurant.address, mapboxKey).then(function(coords){
+                var marker = new mapboxgl.Marker()
+                    .setLngLat([coords])
+                    .addTo(map);
+                var popup = new mapboxql.Popup()
+                    popup.setHTML('<h3>' + restaurant.name +'</h3>' + '<p>' + restaurant.message + '</p>');
+                marker.setPopup(popup);
+            });
+        });
+    // STEP 3: Add markers for each coordinate
+
+
+
+    // var title = document.getElementById('title');
+    // var btn1 = document.getElementById('btn1');
+    //     btn1.addEventListener("click", function () {
+
+    // function relocate() {
+    //     // map.zoomOut({offset: [ -95.7128906, 37.0902405]});
+    //     map.setZoom(10);
+    //     map.setCenter([14.263316, 40.850024]);
+    //     map.setStyle("mapbox://styles/mapbox/satellite-streets-v11");
+    // }
+    // setTimeout(relocate, 5000);
+        // });
+
+
+        //     marker.setPopup(popup)
+        //         .setMaxWidth("100px")
+        //         .addTo(map);
+        //     popup.setHTML('<h3>"Restaurant # " + (++x) + " " + object[i].name + "\n" + "Address: " + object[i].address + "\n" + "Message: " + object[i].message</h3>')
+        // });
+    // var title = document.getElementById('title');
+    // var btn1 = document.getElementById('btn1');
+    // btn1.addEventListener("click", function () {
+    //     title.innerHTML = "JavaScript is Cool";
+    // });
 
     </script>
 </body>
