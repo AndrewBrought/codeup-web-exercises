@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Class Array Function</title>
+</head>
+<body>
+    <script>
+        (function(){ //Start of IIFE
+
+var arrClass = ["welcome.html", "github.html", "style.css", "ex-4"];
+var arrPersonal = ["welcome_html", "github.html", "style.css", "ex_4","ex-5", "ex_6"];
+var a = [1, 2, 3, 5];
+var b = [1, 4, 3, 5];
+
+// function checkForAssignments(arr1, arr2) {
+// var newArr = []
+// for (var i = 0; i < arr1.length; i++) {
+//     for(var x = 0; x <= arr1[i].length; x++){
+//         if(arr1[i] === arr2[x]){
+//             newArr.push(arr1[i] + " " + arr2[x] + " -Match");
+//         } else {
+//             newArr.push(" No Match");
+//         }
+//     }
+//     return newArr;
+// }
+
+// if length is not equal
+// comapring each element of array
+
+var classList = `welcome.html,
+github.html,
+forms.html,
+css_selectors.html,
+login-form.html,
+messages.html,
+twitter.html,
+flexbox-fundamentals-exercise.html,
+flex-form.html,
+flexbox-cards.html,
+flexbox-nav-exercise.html,
+mondrian.html,
+streaming-player-ui.html,
+css-grid-layout-1.html,
+css-grid-layout-2.html,
+css-grid-layout-3.html,
+order-pizza.html,
+inline_js.html,
+external_js.html,
+functions_js.html,
+conditionals.html,
+loops.html,
+iterating_arrays_js.html,
+planets-js.html,
+split-join.html,
+objects.html`
+
+var personalList = `welcome.html,
+github.html,
+forms.html,
+check1,
+check1,
+check1,
+css-selectors.html,
+login-form.html,
+messages.html,
+twitter.html,
+flexbox-fundamentals-exercise.html,
+flex-form.html,
+check2,
+flexbox-cards.html,
+flexbox-nav-exercise.html,
+mondrian.html,
+streaming-player-ui.html,
+Wrong1,
+css-grid-layout-1.html,
+css-grid-layout-2.html,
+css-grid-layout-3.html,
+wrong 2,
+wrong2,
+order-pizza.html,
+inline-js.html,
+external_js.html,
+functions_js.html,
+conditionals.html,
+4,
+2,
+lops.html,
+iterating_arrays_js.html,
+planets-js.html,
+bob,
+split-join.html,
+objects.html
+Nope,
+Nope2,
+Nope 3`
+//3
+var classListArray =  classList.split(",");
+var personalListArray = personalList.split(",");
+
+// function checkForAssignments(arr1, arr2) {
+//     for (var i = 0; i < arr1.length; i++) {
+//         if (arr2.length)
+//             if (arr1[i] === arr2[i]) {
+//                 console.log("Match! ");
+//                 continue;
+//             } else {
+//                 console.log(arr2[i] + "\n" +"\n" + " Expected: " + arr1[i]);
+//             }
+//     }
+// }
+
+// function checkForAssignments (personalArr, outsideArr) {
+//     for (var i = 0; i < personalArr.length; i++) {
+//         for (var j = 0; j < outsideArr.length; j++) {
+//             if (personalArr[i] === outsideArr[j]) {
+//                 console.log("Match! " + ++i + " " + outsideArr[j]);
+//             } else if(personalArr[i] !== outsideArr){
+//                 console.log("Your title: " + personalArr[i]  + " is different");
+//             }
+//     }
+// }
+
+    function checkForAssignments (personalArr, outsideArr) {
+                for(var i = 0; i < personalArr.length; i++) {
+                    if (outsideArr.includes(personalArr[i]) === true) {
+                        console.log("Match: " + personalArr[i]);
+                    } else {
+                        console.log("WAIT!! Your title: " + personalArr[i] + " does not match!");
+                    }
+                }
+    }
+console.log(checkForAssignments(personalListArray, classListArray));
+
+
+        })(); //End of IIFE
+
+    </script>
+
+</body>
+</html>

@@ -293,4 +293,5 @@ function separateNumValues(arr){
     });
     return numberArray;
 }
+
 console.log(separateNumValues(originalArray));
