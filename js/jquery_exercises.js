@@ -8,9 +8,10 @@ $(document).ready(function() {
     // var paragraphOne = $('#first-paragraph').html();
     //     alert(paragraphOne);
 
-    var games = $('#game').html();
-        alert(games);
+    // var games = $('#game').html();
+    //     alert(games);
 
+    $('.codeup').css('border', '1px solid red');
 
 });
 
