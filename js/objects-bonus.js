@@ -32,3 +32,38 @@ console.log(makeCar("VW", "Beetle"));
 //         }
 //     },
 // ];
+
+averageSales([
+    {name: 'Jim Halpert', sales: 100},
+    {name: 'Dwight Schrute', sales: 50},
+    {name: 'Andy Bernard', sales: 150},
+])
+
+function averageSales() {
+    function totalSales() {
+        function sales(name) {
+            return name.sales;
+        }
+
+        function sum(prev, next) {
+            return prev + next;
+        }
+
+        return averageSales.map(sales).reduce(sum);
+    }
+    console.log(totalSales(averageSales) / averageSales.length);
+}
+
+
+// ['html', 'css', 'javascript']
+
+['html', 'css', 'javascript']
+
+function analyzeWord(str){
+    var wordInfo = {};
+    wordInfo.word = str;
+    wordInfo.numberOfLetters = str.length;
+    wordInfo.numberOfVowels = countVowels(str);
+    return wordInfo;
+}
+
