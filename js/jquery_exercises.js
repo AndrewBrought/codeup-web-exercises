@@ -11,7 +11,20 @@ $(document).ready(function() {
     // var games = $('#game').html();
     //     alert(games);
 
-    $('.codeup').css('border', '1px solid red');
+    // $('.codeup').css('border', '1px solid red');
+
+    $('li').css('font-size', '20px');
+
+    $('.highlight').css('background-color', 'yellow');
+
+    var titleOne = $('#titleOne').html();
+        alert(titleOne);
+    var titleTwo = $('#titleTwo').html();
+    alert(titleTwo);
+    var titleThree = $('#titleThree').html();
+    alert(titleThree);
+
+
 
 });
 
