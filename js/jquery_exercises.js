@@ -15,15 +15,20 @@ $(document).ready(function() {
 
     $('li').css('font-size', '20px');
 
-    $('.highlight').css('background-color', 'yellow');
+    // $('.highlight').css('background-color', 'yellow');
 
-    var titleOne = $('#titleOne').html();
-        alert(titleOne);
-    var titleTwo = $('#titleTwo').html();
-    alert(titleTwo);
-    var titleThree = $('#titleThree').html();
-    alert(titleThree);
+    // var titleOne = $('#titleOne').html();
+    //     alert(titleOne);
+    // var titleTwo = $('#titleTwo').html();
+    // alert(titleTwo);
+    // var titleThree = $('#titleThree').html();
+    // alert(titleThree);
 
+    $('h1, p, li').css({
+        'background-color': 'black',
+        'color': 'white'
+
+    });
 
 
 });
