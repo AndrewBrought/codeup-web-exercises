@@ -1,0 +1,62 @@
+@font-face {
+    font-family: 'snes';
+    src:
+            local('snes');
+            url("https://www.fontspace.com/snes-font-f26537");
+    format('opentype');
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 1em;
+    text-align: center;
+}
+
+.title {
+    font-family: 'snes', sans-serif;
+    font-size: 4em;
+    margin-bottom: 1em;
+}
+
+.container {
+    display: flex;
+    border: 1px solid lightgrey;
+    justify-content: space-evenly;
+    margin-bottom: 80px;
+}
+
+.div {
+
+}
+
+#div1 > img {
+    display: flex;
+    width: 200px;
+    height: auto;
+    margin: 10px;
+    /*margin-left: 100px;*/
+}
+
+#div2 > img {
+    display: flex;
+    width: 200px;
+    height: auto;
+    margin: 10px;
+    /*margin-left: 100px;*/
+}
+
+#div3 > img {
+    display: flex;
+    width: 200px;
+    height: auto;
+    margin: 10px;
+    /*margin-left: 100px;*/
+}
+
+/*#div1img {*/
+/*    width: auto;*/
+/*}*/
+

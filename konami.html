@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+    <link rel="stylesheet" href="css/konami.css">
+</head>
+<body>
+
+    <h1 class="title" >Konami Code</h1>
+
+    <div class="container">
+    <div class="test" id="div1">
+        <img src="img/instruments.jpg">
+        <p>"I Don't Know Flip All"</p>
+    </div>
+    <div class="test" id="div2"><img src="img/instruments.jpg"></div>
+    <div class="test" id="div3"><img src="img/instruments.jpg"></div>
+    </div>
+
+    <div class="pong"></div>
+
+
+<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+<script>
+    "use strict";
+
+        // I Don't Know Flip All
+        var doomCode =['i', 'd', 'k', 'f', 'a']
+        var doom = 0;
+
+
+            $(document).keydown(function() {
+               if(doomCode.indexOf(event.key) < 0 || event.key !== doomCode[doom]) {
+                   doom = 0;
+                   return;
+               }
+               doom++;
+
+               if(doomCode.length === doom) {
+                   doom = 0;
+                   activateCheats();
+                   $('body').css('background', 'black');
+                   $('.title').css('color', 'white');
+                   window.alert('You\'ve Unlocked the First!');
+                   // $(".sound").html('<iframe src="audio/doomDoor.mp3" allow="autoplay" style="display:none" id="iframeAudio">' +
+                   //     '</iframe>')
+                   // }
+
+                   }
+
+                function activateCheats() {
+                    document.body.style.backgroundImage = "url('images/cheatBackground.png')";
+
+                    var audio = new Audio('sounds/doomDoor.mp3');
+                    audio.play();
+
+                    // alert("cheats activated");
+                }
+
+
+            });
+
+        var konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+        var current = 0;
+
+        // var keyHandler = function (event) {
+        //     console.log(keyHandler(event));
+        // }
+
+            $(document).keydown(function(){
+                // If the key isn't in the pattern, or isn't the current key in the pattern, reset
+            if (konamiCode.indexOf(event.key) < 0 || event.key !== konamiCode[current]) {
+                current = 0;
+                return;
+            }
+            // Update how much of the pattern is complete
+            current++;
+            // If complete, alert and reset
+            if (konamiCode.length === current) {
+                current = 0;
+                window.alert('You found it!');
+                $(function () {
+                    $(".pong").load('mdn-pong-build-out.html');
+                });
+            }
+
+
+    });
+
+</script>
+</body>
+</html>
