@@ -29,19 +29,57 @@ $(document).ready(function() {
      *********************************************/
 
     // TODO TOGETHER:  Using an event listener and css method, increase the font-size of 'Sorting Hat' when clicked.
+    $('#main-heading').click(function(){
+        $(this).css("font-size", "4em");
+        $(this).html('<p>My Sorting Hat</p>'); // This adds it to be inside of main heading
+    });
+
+    // $('ul').click(function(){
+    //     $(this).html('Test'); // This is not formatted as a list element, just showing text. Not appropriate
+    //     $(this).text('Test'); // This is not formatted as a list element, just showing text. This is appropriate!
+    //     $(this).html('<li>Test</li>'); //This get's rid of everything and replaces it with this input...To add at the end use .append() To Add to the beginning of a list use .prepend()
+    // });
+
     //    How can font size be changed using .html()?
 
+
     // TODO TOGETHER: store the inner text of #main-heading in a variable
+    var mainHeading = $('main-heading').text();
+    // alert(mainHeading);
 
     // TODO: Using a css method, change the banner background-color to black
     //  Hint: make sure you use the right selector
 
+    $('.banner').css("background-color", "black");
+
     // TODO TOGETHER: When the 'Houses' button is clicked, add the class 'house' to anything with a class of 'house-name'
+
+    // Click on button with this id
+    $('#highlight-houses').click(function(){
+        //target all elements with class of .house-name
+        // add class 'house' to it's html
+       // $('.house-name').addClass('house');  //We do not need to refer to it with '.' because we're passing a string instead of a selector
+
+        // $('.house-name').removeClass('house'); // This removes the class on button click
+
+        $('.house-name').toggleClass('house');
+    });
 
     // TODO: Comment out the code above. Add the class of 'house' to all the 'house-names'
     //  Write the event listener to remove the class instead
 
+
     // TODO TOGETHER: Refactor your addClass and removeClass methods to toggle the 'house' class instead
+
+    $('#lock-g').click(function(){
+        $('#gryffindor-house').toggleClass('gryffindor');
+        if($('#gryffindor-house').hasClass('gryffindor')){
+            // 'this' refers to the element that triggers the event listener
+            $(this).text('unlock');
+        }else{
+            $(this).text('lock in');
+        }
+    });
 
     /**********************************************
      * 			       Traversing
