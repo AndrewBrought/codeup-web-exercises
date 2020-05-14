@@ -53,8 +53,12 @@
                if(doomCode.length === doom) {
                    doom = 0;
                    activateAudio();
-                   $('.title').css('color', 'red');
                    window.alert('You\'ve Unlocked the First Code!');
+                   $('.title').css({
+                       'color': 'red',
+                       'letter-spacing': '30px'
+                   });
+
                    // $(".sound").html('<iframe src="audio/doomDoor.mp3" allow="autoplay" style="display:none" id="iframeAudio">' +
                    //     '</iframe>')
                    // }
