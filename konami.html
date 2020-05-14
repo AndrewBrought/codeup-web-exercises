@@ -9,18 +9,21 @@
     <h1 class="title" >Konami Code</h1>
 
     <div class="container">
-    <div class="test" id="div1">
-        <img src="img/doom.jpg">
-        <p id="doom">"<span class="doom">I</span> <span class="doom">D</span>on't <span class="doom">K</span>now <span class="doom">F</span>lip <span class="doom">A</span>ll"</p>
-    </div>
-    <div class="test" id="div2">
-        <img src="img/donkey-kong-country.jpg">
-        <p class="barrel">"<span>A - B, A, R, R, A, L  - of Fun!</span>"</p>
-    </div>
-    <div class="test" id="div3">
-        <img src="img/contra.jpg">
-        <p>"K Code"</p>
-    </div>
+
+        <div id="div1">
+            <img src="img/doom.jpg">
+            <p id="doom">"<span class="doom">I</span> <span class="doom">D</span>on't <span class="doom">K</span>now <span class="doom">F</span>lip <span class="doom">A</span>ll"</p>
+        </div>
+
+        <div id="div2">
+            <img src="img/donkey-kong-country.jpg">
+            <p class="barrel">"<span>A - B, A, R, R, A, L  - of Fun!</span>"</p>
+        </div>
+
+        <div id="div3">
+            <img src="img/contra.jpg">
+            <p>"K Code"</p>
+        </div>
 
     </div>
 
@@ -31,22 +34,16 @@
 <script>
     "use strict";
 
-    window.onload = function(){
-        var elements = document.getElementsByClassName("each-word")
-        for (var i=0; i<elements.length; i++){
-            elements[i].innerHTML = elements[i].innerHTML.replace(/\\b([a-z])([a-z]+)?\\b/gim, "<span class='first-letter'>$1</span>$2")
-        }
-    }
 
+        //Doom Code Match
         // I Don't Know Flip All
         var doomCode =['i', 'd', 'k', 'f', 'a']
         var doom = 0;
 
-
             $(document).keydown(function() {
                if(doomCode.indexOf(event.key) < 0 || event.key !== doomCode[doom]) {
                    doom = 0;
-                   return;
+                   return;  //Can turn this into an if/else
                }
                doom++;
 
@@ -58,7 +55,6 @@
                        'color': 'red',
                        'letter-spacing': '30px'
                    });
-
                    // $(".sound").html('<iframe src="audio/doomDoor.mp3" allow="autoplay" style="display:none" id="iframeAudio">' +
                    //     '</iframe>')
                    // }
@@ -71,6 +67,7 @@
 
             });
 
+            //Donkey Kong Code Match
             var dkCode = ['B', 'A', 'R', 'R', 'A', 'L'];
             var barrel = 0;
 

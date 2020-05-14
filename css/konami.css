@@ -39,7 +39,6 @@ body {
     width: 200px;
     height: auto;
     margin: 10px;
-    /*margin-left: 100px;*/
 }
 
 #div2 > img {
@@ -47,7 +46,6 @@ body {
     width: 200px;
     height: auto;
     margin: 10px;
-    /*margin-left: 100px;*/
 }
 
 #div3 > img {
@@ -55,7 +53,6 @@ body {
     width: 200px;
     height: auto;
     margin: 10px;
-    /*margin-left: 100px;*/
 }
 
 #div1 p span {
@@ -66,12 +63,6 @@ body {
 p {
     letter-spacing: .5px;
 }
-
-/*P:first-letter {*/
-/*    font-size: 4.5em;*/
-/*    float: left;*/
-/*    margin-top: .15em;*/
-/*}*/
 
 span {
     letter-spacing: 1.5px;
