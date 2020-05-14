@@ -10,11 +10,18 @@
 
     <div class="container">
     <div class="test" id="div1">
-        <img src="img/instruments.jpg">
-        <p>"I Don't Know Flip All"</p>
+        <img src="img/doom.jpg">
+        <p id="doom">"<span class="doom">I</span> <span class="doom">D</span>on't <span class="doom">K</span>now <span class="doom">F</span>lip <span class="doom">A</span>ll"</p>
     </div>
-    <div class="test" id="div2"><img src="img/instruments.jpg"></div>
-    <div class="test" id="div3"><img src="img/instruments.jpg"></div>
+    <div class="test" id="div2">
+        <img src="img/donkey-kong-country.jpg">
+        <p class="barrel">"<span>A - B, A, R, R, A, L  - of Fun!</span>"</p>
+    </div>
+    <div class="test" id="div3">
+        <img src="img/contra.jpg">
+        <p>"One of The Most Infamous <br> Gaming Cheat Codes"</p>
+    </div>
+
     </div>
 
     <div class="pong"></div>
@@ -23,6 +30,13 @@
 <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
 <script>
     "use strict";
+
+    window.onload = function(){
+        var elements = document.getElementsByClassName("each-word")
+        for (var i=0; i<elements.length; i++){
+            elements[i].innerHTML = elements[i].innerHTML.replace(/\\b([a-z])([a-z]+)?\\b/gim, "<span class='first-letter'>$1</span>$2")
+        }
+    }
 
         // I Don't Know Flip All
         var doomCode =['i', 'd', 'k', 'f', 'a']
@@ -38,34 +52,48 @@
 
                if(doomCode.length === doom) {
                    doom = 0;
-                   activateCheats();
-                   $('body').css('background', 'black');
-                   $('.title').css('color', 'white');
+                   activateAudio();
+                   $('.title').css('color', 'red');
                    window.alert('You\'ve Unlocked the First!');
                    // $(".sound").html('<iframe src="audio/doomDoor.mp3" allow="autoplay" style="display:none" id="iframeAudio">' +
                    //     '</iframe>')
                    // }
-
                    }
-
-                function activateCheats() {
-                    document.body.style.backgroundImage = "url('images/cheatBackground.png')";
-
+                function activateAudio() {
                     var audio = new Audio('sounds/doomDoor.mp3');
                     audio.play();
-
-                    // alert("cheats activated");
                 }
 
 
             });
 
+            var dkCode = ['B', 'A', 'R', 'R', 'A', 'L'];
+            var barrel = 0;
+
+            $(document).keydown(function(){
+               if(dkCode.indexOf(event.key) < 0 || event.key !== dkCode[barrel]){
+                   barrel = 0;
+                   return;
+               }
+               barrel++;
+               if(dkCode.length === barrel){
+                   barrel = 0;
+                   activateAudio();
+                   window.alert('You found it!');
+                   $('body').css('background', 'black');
+                   $('.title').css('color', 'white');
+                   $('span').css('color', 'white');
+                   $('p').css('color', 'white');
+               }
+                function activateAudio() {
+                    var audio = new Audio('sounds/dk.mp3');
+                    audio.play();
+                }
+            });
+
+
         var konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
         var current = 0;
-
-        // var keyHandler = function (event) {
-        //     console.log(keyHandler(event));
-        // }
 
             $(document).keydown(function(){
                 // If the key isn't in the pattern, or isn't the current key in the pattern, reset
@@ -78,7 +106,12 @@
             // If complete, alert and reset
             if (konamiCode.length === current) {
                 current = 0;
+                activateAudio();
                 window.alert('You found it!');
+                function activateAudio() {
+                    var audio = new Audio('sounds/nsync.mp3');
+                    audio.play();
+                }
                 $(function () {
                     $(".pong").load('mdn-pong-build-out.html');
                 });
