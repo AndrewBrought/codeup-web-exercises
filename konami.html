@@ -19,7 +19,7 @@
     </div>
     <div class="test" id="div3">
         <img src="img/contra.jpg">
-        <p>"One of The Most Infamous <br> Gaming Cheat Codes"</p>
+        <p>"K Code"</p>
     </div>
 
     </div>
@@ -54,7 +54,7 @@
                    doom = 0;
                    activateAudio();
                    $('.title').css('color', 'red');
-                   window.alert('You\'ve Unlocked the First!');
+                   window.alert('You\'ve Unlocked the First Code!');
                    // $(".sound").html('<iframe src="audio/doomDoor.mp3" allow="autoplay" style="display:none" id="iframeAudio">' +
                    //     '</iframe>')
                    // }
@@ -79,7 +79,7 @@
                if(dkCode.length === barrel){
                    barrel = 0;
                    activateAudio();
-                   window.alert('You found it!');
+                   window.alert('You\'ve Unlocked the Second Code!');
                    $('body').css('background', 'black');
                    $('.title').css('color', 'white');
                    $('span').css('color', 'white');
@@ -107,7 +107,7 @@
             if (konamiCode.length === current) {
                 current = 0;
                 activateAudio();
-                window.alert('You found it!');
+                window.alert('You\'ve Found Them All!');
                 function activateAudio() {
                     var audio = new Audio('sounds/nsync.mp3');
                     audio.play();
