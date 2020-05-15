@@ -84,18 +84,56 @@ $(document).ready(function() {
     /**********************************************
      * 			       Traversing
      *********************************************/
-
+    $('#gryffindor').children(); //returns the children li
     // TODO TOGETHER: console log each list element's text
+
+    var numbers = [1,2,3,4,5];
+
+    numbers.forEach(function(number){
+        console.log(number);
+    });
+
+
+    // $('li').each(function(){
+    //    console.log($(this).html())
+    // });
+
 
     // TODO TOGETHER: select all list elements and console log the first match
 
+    console.log($('li').first().html());  // .first & .last return the node object without .html() attached
+
     // TODO TOGETHER: select all list elements and console log the last match
 
+    console.log($('li').last().html());
+
     // TODO TOGETHER: When I click on a list element, highlight its parent
+    // This highlights the parent <ul> for any list element that is clicked
+      $('li').click(function(){
+          // method chaining
+          $(this).parent().css('background-color', 'yellow');
+      });
 
     // TODO TOGETHER: When I click into a <ul>, console log last child in that group
 
+        $('ul').click(function (){
+            console.log($(this).children().last().html());
+        });
+
     // TODO TOGETHER: When I click on any list element, console log the next element
+
+        $('#r-heading').click(function (){
+           // $(this).next().css('background-color', 'blue');
+           //  $(this).next().addClass('ravenclaw'); //targets the immediately following property
+        });
+
+        $('li').each(function(i){
+           if(i === 3 ){
+               console.log($(this).html());
+           }
+        });
+
+
 
 
 

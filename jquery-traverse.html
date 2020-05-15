@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Frame Traversal</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            margin: 1em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .frame {
+            width: 40%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /*.img-left {*/
+        /*    !*background-image: url(/img/beach 1.jpeg);*!*/
+        /*    !*background-repeat: no-repeat;*!*/
+        /*    width: 300px;*/
+        /*    height: 200px;*/
+        /*}*/
+
+        /*.img-center {*/
+        /*    !*background-image: url(/img/veridian-mountain_lake.jpeg);*!*/
+        /*    !*background-repeat: no-repeat;*!*/
+        /*    width: 300px;*/
+        /*    height: 200px;*/
+        /*}*/
+
+        /*.img-right {*/
+        /*    !*background-image: url(/img/floral-balcony.jpeg);*!*/
+        /*    !*background-repeat: cover;*!*/
+        /*    width: 300px;*/
+        /*    height: 200px;*/
+        /*}*/
+
+        img {
+            width: 300px;
+            height: 200px;
+        }
+
+        button {
+            display: flex;
+
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div id="div-left" class="frame">
+<!--        <div class="img-left"></div>-->
+        <img src="img/beach%201.jpeg" class="img-left">
+        <button id="left-btn" type="button">Switch</button>
+    </div>
+
+    <div id="div-center" class="frame">
+<!--        <div class="img-center"></div>-->
+        <img src="img/veridian-mountain_lake.jpeg" class="img-center">
+        <button id="center-btn" type="button">Switch</button>
+    </div>
+
+    <div id="div-right" class="frame">
+        <div class="img-right"></div>
+        <img src="img/floral-balcony.jpeg" class="img-right">
+        <button id="right-btn" type="button">Switch</button>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script>
+    "use strict"
+
+    $(document).ready(function() {
+
+//         $('#left-btn').click(function(){
+//             $('#div-left').prev().toggleClass('img-center');
+//             if($(this).hasClass('img-center')){
+//                 $('div-center:first-child').removeClass('img-center').toggleClass('img-left');
+//             }
+//         })
+// console.log($('#left-btn'));
+
+
+
+        // $("#left-btn").toggle(function() {
+        //     $(this).html('<img src="img/beach%201.jpeg"/>');
+        // }, function() {
+        //     $(this).html('<img src="img/veridian-mountain_lake.jpeg"/>');
+        // });​
+
+        // $('#left-btn').on('toggle',function(){
+        //     $('.img-left').attr('src',"img/veridian-mountain_lake.jpeg");
+        //     $('.img-center').attr('src', "img/beach%201.jpeg");
+        // })
+
+        var left = "img/beach%201.jpeg";
+        var center = "img/veridian-mountain_lake.jpeg";
+        var right = "img/floral-balcony.jpeg";
+
+        $('#left-btn').click(function(){
+            if($('.img-left').attr('src') == center){
+                $('.img-left').attr('src', left);
+                $('.img-center').attr('src', center)
+            } else{
+                $('.img-left').attr('src', center);
+                $('.img-center').attr('src', left)
+            }
+            // $('.img-left').attr('src',"img/veridian-mountain_lake.jpeg");
+            // $('.img-center').attr('src', "img/beach%201.jpeg");
+        });
+
+        $('#right-btn').click(function(){
+           if($('.img-right').attr('src') == center){
+               $('.img-right').attr('src', right);
+               $('.img-center').attr('src', center)
+           } else{
+               $('.img-right').attr('src', center);
+               $('.img-center').attr('src', right);
+           }
+        });
+
+        // if($('.img-left').attr('src') == center){
+        //     $('.img-left').attr('src') == left;
+        // } else{
+        //     $('.img-left').attr('src') == center;
+        // }
+
+
+
+
+
+    });
+
+</script>
+</body>
+</html>
