@@ -5,8 +5,10 @@
     <title>AJAX Blog</title>
 </head>
 <body>
-
+    <div class="container">
     <div id="posts"></div>
+    </div>
+    <button id="update" class="btn" type="submit">Update</button>
 
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script>
@@ -14,9 +16,29 @@
 
             "use strict"
 
-        $.ajax('data/blog.json').done(function(info){
+            function update() {
+                $.ajax('data/blog.json').done(function(info){
+                   $.each(info, function(index, item){
+                       var html = '<div id="posts">';
+                        html += '<h2>' + item.title + '</h2>';
+                        html += '<p>' + item.content + '</p>';
+                        html += '<h3>' + item.categories + '</h3>';
+                        html += '<h4>' + item.date + '</h4>';
+                        html += '</div>';
 
-        });
+                        $('#posts').append(html);
+
+                   });
+                });
+            }
+
+            $('#update').click(function(){
+                $('#posts').empty();
+                update();
+            })
+
+
+            update();
 
 
 
