@@ -119,8 +119,16 @@
             })
         });
 
+        // $('#highlight').click(function(){  // AARONS WAY OF THINKING ABOUT THE PROBLEM ...not as helpful if we add to the list, but very logical!
+        //     $('li').each(function(index){
+        //         if(index ===3 || index === 7 || index ===11) {
+        //             $(this).css('background-color', 'yellow');
+        //         }
+        //     })
+        // })
+
         $('h3').click(function(){ //look up .next
-            $(this).next().css('font-weight', 'bold');
+            $(this).next().children().css('font-weight', 'bold'); //make sure to include children to make sure you are specifically targetting the li's
         });
 
         // $('h3').each(function(){

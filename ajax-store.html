@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Store</title>
+    <style>
+        table {
+            table-layout: fixed;
+            width: 100%;
+            border-collapse: collapse;
+            border: 2px solid darkblue;
+            /*display: flex;*/
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        th {
+            text-align: center;
+        }
+
+        .data {
+            text-align: center;
+           padding: 15px;
+            letter-spacing: 1.5px;
+        }
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+<h1>My Tool Store</h1>
+
+<table id="products">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Categories</th>
+        </tr>
+    </thead>
+    <tbody id="insertProducts"></tbody>
+</table>
+
+<input class="btn" id="submit" type="submit">
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script>
+(function() {
+    "use strict";
+    // TODO: Create an AJAX GET request for the file under data/inventory.json
+
+   function refresh() {
+       $.ajax('data/inventory.json').done(function (info) {
+           $.each(info, function (index, item) {
+               var html = '<tr>';
+               html += '<td class="data">' + item.title + '</td>';
+               html += '<td class="data">' + item.quantity + '</td>';
+               html += '<td class="data">' + item.price + '</td>';
+               html += '<td class="data">' + item.categories + '</td>';
+               html += '</tr>';
+
+               $('#products').append(html);
+
+           });
+
+       });
+   }
+
+    $('#submit').click(function(){
+        $('#products').empty();
+        refresh();
+    });
+
+    refresh();
+    // TODO: Take the data from inventory.json and append it to the products table
+    //       HINT: Your data should come back as a JSON object; use console.log() to inspect
+    //             its contents and fields
+    //       HINT: You will want to target #insertProducts for your new HTML elements
+})();
+</script>
+
+</body>
+</html>
