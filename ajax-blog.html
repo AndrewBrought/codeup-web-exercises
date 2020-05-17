@@ -3,13 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <title>AJAX Blog</title>
+    <script src="https://kit.fontawesome.com/66d77e56aa.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Montserrat+Alternates:ital,wght@0,300;0,400;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Give+You+Glory&family=Sanchez&family=Special+Elite&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/ajax-blog-css.css">
 </head>
 <body>
-    <div class="container">
-    <div id="posts"></div>
-    </div>
-    <button id="update" class="btn" type="submit">Update</button>
 
+<!-- NAV BARS-->
+    <nav class="header-nav">
+        <ul>
+            <li><a href="#">Start Here</a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+            <li id="split"><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+            <li><a href="#">Log In</a></li>
+            <li id="last-head-nav"><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+
+
+        </ul>
+    </nav>
+
+    <nav class="top-nav">
+        <ul class="nav">
+            <li id="menu-title"><a href="#"><span id="first-name">Bob's</span><span id="blog">Blog</span></a></li>
+            <li><a href="#">Web Design</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Blog</a></li>
+        </ul>
+    </nav>
+
+<!--    IMAGES -->
+    <div class="header-img">
+        <img src="img/trendy-yoga.jpeg">
+        <img src="img/floral-balcony.jpeg">
+        <img src="img/breakfast-blog.jpeg">
+        <img src="img/lightbulb-woman.jpeg">
+        <img src="img/mountain-camera.jpeg">
+        <img src="img/warm-studio.jpeg">
+        <img src="img/trendy-workspace.jpeg">
+    </div>
+
+<!--Heading-->
+    <h1>Bob's Blogs</h1>
+
+<!--BLOG CONTENT-->
+
+    <div class="container">
+
+<!--       BLOG IMAGES -->
+        <div class="blog-img">
+            <img src="img/alfresco-cafe.jpeg">
+            <img src="img/ocean-dawn.jpeg">
+<!--            <img src="img/birds-eye-coast.jpeg">-->
+            <img src="img/coffee-alley.jpeg">
+            <!--            <img src="img/lounging-on-beach.jpeg">-->
+        </div>
+        <div id="posts" class="blogs">
+        </div>
+    </div>
+    <div class="footer-btn">
+            <button id="update" class="btn" type="submit">Update</button>
+    </div>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script>
         (function() {

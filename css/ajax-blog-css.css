@@ -1,0 +1,172 @@
+
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    width: 100%;
+}
+
+
+.header-nav {
+    /*margin: 0;*/
+    /*display: flex;*/
+    /*align-items: center;*/
+    background-color: inherit;
+    width: 100%;
+    height: 10vh;
+    font-family: 'Abril Fatface', cursive;
+    margin-top: -1em;
+}
+
+.header-nav a {
+    color: #CEBBBB;
+}
+
+.header-nav a:hover{
+    background-color: #333333;
+    color: whitesmoke;
+   padding-bottom: 2em;
+
+}
+
+#split {
+    margin-right: auto;
+}
+
+#last-head-nav {
+    margin-right: 1em;
+}
+
+nav {
+    background: #333333;
+    /*margin-top: 25px;*/
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+nav a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Abril Fatface', cursive;
+    display: inline-block;
+    /*padding: 1em ;*/
+    padding: 1.7em 0.5em 0.5em 0.5em;
+
+}
+nav a:hover {
+    background: black;
+    /*padding-top: 1em;*/
+}
+
+
+#menu-title {
+    margin-right: auto;
+    margin-bottom: .5em;
+
+}
+
+#first-name {
+    font-family: 'Abril Fatface', cursive;
+    padding-right: 1em;
+    font-size: 1.8em;
+    margin-bottom: .5em;
+}
+
+#blog {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2em;
+    font-style: italic;
+}
+
+/*Header Images*/
+
+.header-img {
+    display: flex;
+    justify-content: center;
+    background-color: #CED4D8;
+    height: 30vh;
+
+}
+
+
+img {
+    width: 13%;
+    height: 30vh;
+}
+
+h1 {
+    /*font-family: 'Abril Fatface', cursive;*/
+    /*font-family: 'Give You Glory', cursive;*/
+    font-family: 'Great Vibes', cursive;
+    font-style: italic;
+    font-size: 9em;
+    color: #DFDCDC;
+    text-align: center;
+}
+
+.container {
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    display: inline-grid;
+    grid-template-columns: 50% 50%;
+    margin: 1em;
+}
+
+.blog-img {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    margin-left: 6em;
+
+}
+
+.blog-img img {
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    /*margin-bottom: 3em;*/
+    padding-bottom: 2em;
+    height: auto;
+
+}
+
+.blogs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: -2em 3em 2em 2em;
+    font-family: 'Montserrat Alternates', sans-serif;
+    letter-spacing: 0.8px;
+}
+
+.footer-btn {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 8em;
+}
+
+.btn {
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: flex-end;*/
+
+    padding: 10px 65px;
+    margin-bottom: 1em;
+    margin-right: 5.5em;
+    font-size: 16px;
+    border-radius: 4px;
+    /*background-color: #e7e7e7; color: #333333;*/
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.btn:hover {
+    /*background-color: #333333;*/
+    /*color: white;*/
+}
