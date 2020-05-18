@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather API</title>
+    <link rel="stylesheet" href="css/weather_map.css">
+</head>
+<body>
+
+
+    <div class="class">
+        <div id="current"></div>
+    </div>
+
+
+
+
+
+<script src="http://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+
+<script src="js/keys.js"></script>
+<script>
+    "use strict";
+
+    //send a request to OpenWeatherMap OneCAll API
+//creating variables that will hold values that we want to use
+    var weatherURL = 'https://api.openweathermap.org/data/2.5/onecall';
+    //These are the key, value pairs that we want to be put in the query string...
+    //we are separating out the long string of the querystring so that we can see clearly what we're wanting to get back from the API
+    var weatherOptions = {
+            lat: 29.4241,
+            lon: -98.4936,
+            appid: OPEN_WEATHER_APPID,
+            exclude: 'minutely, hourly',
+            units: 'imperial'
+    };
+
+    function parseDate(timestamp){
+        return new Date(timestamp * 1000).toLocaleDateString();
+
+    }
+    // $.get('weatherURL, weatherOptions'); //will concatinate all the desired data
+
+    $.get(weatherURL, weatherOptions).done(function(data){
+        console.log(data);
+        console.log(data.daily[0].temp.max);
+        console.log(data.daily[1].pressure);
+        console.log(data.current.weather[0].icon);
+
+
+        // var todayDate = new Date(data.daily[0].dt * 1000);
+        // console.log(parseDate(data.daily[0].dt));  //new Date(1589824800 * 1000).toDateString();
+    });
+
+</script>
+
+</body>
+</html>

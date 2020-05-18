@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            margin: 1em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .frame {
+            width: 40%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #center {
+            width: 300px;
+            height: 200px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div id="center" class="frame"></div>
+
+
+</div>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script>
+    "use strict"
+
+    $(document).ready(function(){
+        function updateRestaurant()
+        {
+            $.ajax('https://frest.glitch.me/restaurants').done(function (info) {
+                $.each(info, function (index, object) {
+                    // console.log(object.operating_hours.Monday);
+                    if ((object.operating_hours.Monday).startsWith("11:30 am")) {
+                        console.log(object.name);
+
+                        var html = "";
+                        html += '<div id="center">' + '<h2>' + object.name + '</h2>' + '</div>';
+
+                        $('#center').append(html);
+                    }
+
+                });
+                $.each(info, function (index, object) {
+                    if ((object.cuisine_type).startsWith("Pizza")) {
+                        console.log(object.name);
+                    }
+                });
+            });
+        }
+
+        updateRestaurant();
+
+
+
+
+
+
+    });
+
+</script>
+
+</body>
+</html>
