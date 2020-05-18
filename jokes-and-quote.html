@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jokes and Quotes</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            margin: 1em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .frame {
+            width: 40%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #center {
+            width: 300px;
+            height: 200px;
+        }
+    </style>
+
+
+</head>
+<body>
+<div class="container">
+    <div id="left-side" class="frame">
+        <button id="left-btn" type="button">Left</button>
+    </div>
+
+    <div id="center" class="frame"></div>
+
+    <div id="right-side" class="frame">
+        <button id="right-btn" type="button">Right</button>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script>
+"use strict"
+
+    $(document).ready(function(){
+
+        function updateJoke() {
+            $.get("http://api.icndb.com/jokes/random").done(function (info) {
+                // console.log(info);
+                    var html = "";
+                    html += '<div id="center">' + '<h2> Chuck Norris Jokes</h2>' + '<P>' + info.value.joke + '</P>'+ '</div>';
+                    $('#center').append(html);  // if you try to iterate over a single value it doesn't work.
+                });
+        }
+
+        // UPDATE LEFT BUTTON
+        $('#left-btn').click(function(){
+            $('#center').empty();
+            updateJoke();
+        })
+
+        updateJoke();
+
+    // http://quotes.stormconsultancy.co.uk/api
+        function updateQuote(){
+            $.ajax('http://quotes.stormconsultancy.co.uk/random.json').done(function(text){
+                var html = "";
+                html += '<div id="center">' + '<h2>' + text.author + '</h2>' + '<p>' + text.quote + '</p>' + '</div>';
+                $('#center').append(html);
+            });
+        }
+    //    UPDATE RIGHT BUTTON
+        $('#right-btn').click(function(){
+           $('#center').empty();
+           updateQuote();
+        });
+
+        // updateQuote();
+
+
+
+    });
+</script>
+</body>
+</html>
