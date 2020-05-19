@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Weather API</title>
+
+    <script src="https://kit.fontawesome.com/66d77e56aa.js" crossorigin="anonymous"></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.css' rel='stylesheet' />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/weather_map.css">
 </head>
 <body>
@@ -12,15 +16,50 @@
     <div id="current"></div>
 </div>
 
+<div class="weekly-forecast">
+    <div id="weekly"></div>
+</div>
+
+<div class="map">
+    <div id='map'></div>
+</div>
+
 
 
 
 
 <script src="http://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
-
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.js'></script>
 <script src="js/keys.js"></script>
 <script>
     "use strict";
+
+    $(document).ready(function(){
+
+        mapboxgl.accessToken = MAPBOX_KEY;
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v9',
+            zoom: 12,
+            center: [-98.4936, 29.4241]
+        });
+
+
+        var marker = new mapboxgl.Marker({
+            draggable: true
+        })
+            .setLngLat([-98.4936, 29.4241])
+            .addTo(map);
+
+        function onDragEnd() {
+            var lngLat = marker.getLngLat();
+            coordinates.style.display = 'block';
+            coordinates.innerHTML =
+                'Longitude: ' + lngLat.lng + '<br/>' + 'Latitude: ' + lngLat.lat;
+            console.log(coordinates);
+        }
+        marker.on('dragend', onDragEnd);
+        // console.log(marker.getLngLat());
 
     //send a request to OpenWeatherMap OneCAll API
     //creating variables that will hold values that we want to use
@@ -28,9 +67,13 @@
 
     //These are the key, value pairs that we want to be put in the query string...
     //we are separating out the long string of the querystring so that we can see clearly what we're wanting to get back from the API
+
+
+    // var latitude = lngLat.lat; console.log(lngLat);
+    // var longitude = lonLat.lon; console.log(lngLat.lon);
     var weatherOptions = {
-        lat: 29.4241,
-        lon: -98.4936,
+        lat: -98.4936,
+        lon: 29.4241,
         appid: OPEN_WEATHER_APPID,
         exclude: 'minutely, hourly',
         units: 'imperial'
@@ -48,7 +91,7 @@
         console.log(data.daily[1].pressure);
 
         // var currentImg = 'http://openweathermap.org/img/w/[data.daily[0].weather[0].icon].png';
-        function weatherStatus() {
+        function currentWeatherStatus() {
             var weather = data.current.weather[0].icon;
             switch (weather) {
                 case "01d":
@@ -81,27 +124,114 @@
             }
         }
 
-        var html = '';
+
         //         TOP
-        html +=  '<div class="day">' + '<div class="current-top">' + '<h3>' + parseDate(data.daily[0].dt) + '</h3>' +
-                '<div>' + '<h3>' + data.current.temp + '°F' + '</h3>' + '</div>' +
-                '<div>' + weatherStatus() + '</div>' +
-                '<div class="top-right">' + '<img src="http://openweathermap.org/img/w/' + data.daily[0].weather[0].icon + '.png"' + '>' + '<h4>' + "Feels Like " + data.daily[0].feels_like.day + '°F ' + '</h4>' + '<h4>' + data.daily[0].temp.max + '°F' + "/" + data.daily[0].temp.min + '°F' + '</h4>' +'</div>' + '</div>' +
+        function currentWeather() {
+            var html = '';
+            html += '<div class="day">' + '<div class="current-top">' + '<div class="top-left">' + '<div>' + '<h3 class="date">' + parseDate(data.daily[0].dt) + '</h3>' + '</div>' +
+                '<div>' + '<h3 class="current-temp">' + data.current.temp + '°' + '</h3>' + '</div>' +
+                '<div class="weather-status">' + currentWeatherStatus() + '</div>' + '</div>' +
+                '<div class="top-right">' + '<div class="icon-img">' + '<img src="http://openweathermap.org/img/w/' + data.daily[0].weather[0].icon + '.png"' + '>' + '</div>' + '<h4 class="feels-like">' + "Feels Like " + data.daily[0].feels_like.day + '°' + '</h4>' + '<h4 class="temp-range">' + data.daily[0].temp.max + '°' + "/" + data.daily[0].temp.min + '°' + '</h4>' + '</div>' + '</div>' +
 
                 //BOTTOM   ADD DAY/NIGHT TAGS FROM FONT AWESOME
-                '<div class="current-bottom">' + '<div class="morn">' + '<h4>Morning</h4>' + '<h3>' + data.daily[0].temp.morn + '°F' + '</h3>' + '</div>' +
-                '<div class="day">' + '<h4>Afternoon</h4>' + '<h4>' + data.daily[0].temp.day + '°F' + '</h4>' + '</div>' +
-                '<div class="eve">' + '<h4>Evening</h4>' + '<h4>' + data.daily[0].temp.eve + '°F' + '</h4>' + '</div>' +
-                '<div class="night">' + '<h4>Overnight</h4>' + '<h4>' + data.daily[0].temp.night + '°F' + '</h4>' + '</div>' + '</div>' + '</div>';
+                '<div class="current-bottom">' + '<div class="morn">' + '<h4>Morning</h4>' + '<h4>' + data.daily[0].temp.morn + '°' + '</h4>' + '<h4>' + '<i class="far fa-sun">' + '</i>' + '</h4>' + '</div>' +
+                '<div class="afternoon">' + '<h4>Afternoon</h4>' + '<h4>' + data.daily[0].temp.day + '°' + '</h4>' + '<h4>' + '<i class="far fa-sun">' + '</i>' + '</h4>' + '</div>' +
+                '<div class="eve">' + '<h4>Evening</h4>' + '<h4>' + data.daily[0].temp.eve + '°' + '</h4>' + '<h4>' + '<i class="far fa-moon">' + '</i>' + '</h4>' + '</div>' +
+                '<div class="night">' + '<h4>Overnight</h4>' + '<h4>' + data.daily[0].temp.night + '°' + '</h4>' + '<h4>' + '<i class="far fa-moon">' + '</i>' + '</h4>' + '</div>' + '</div>' + '</div>';
 
-        console.log(data.daily[0].weather[0].icon);
-        $('#current').append(html);
+            console.log(data.daily[0].weather[0].icon);
+            $('#current').append(html);
+
+            // var todayDate = new Date(data.daily[0].dt * 1000);
+            // console.log(parseDate(data.daily[0].dt));  //new Date(1589824800 * 1000).toDateString();
+        }  //END OF CURRENT WEATHER FUNCTION
+
+
+        // WEEKLY FORECAST
 
 
 
-        // var todayDate = new Date(data.daily[0].dt * 1000);
-        // console.log(parseDate(data.daily[0].dt));  //new Date(1589824800 * 1000).toDateString();
+
+
+        function dailyWeatherStatus() {
+            var dailyWeather = item.daily[index].weather[0].icon;
+            switch (dailyWeather) {
+                case "01d":
+                    return "Sunny";
+                    break;
+                case "02d":
+                    return "Few Clouds";
+                    break;
+                case "03d":
+                    return "Scattered Clouds";
+                    break;
+                case "04d":
+                    return "Broken Clouds";
+                    break;
+                case "09d":
+                    return "Showers";
+                    break;
+                case "10d":
+                    return "Rain";
+                    break;
+                case "11d":
+                    return "Thunderstorms";
+                    break;
+                case "13d":
+                    return "Snow";
+                    break;
+                case "50d":
+                    return "Mist";
+                    break;
+            }
+        }
+
+
+        //     function weeklyForecast() {
+        //         $.each(data, function(index, item){
+        //         var html = '';
+        //         html += '<div class="day">' + '<div class="current-top">' + '<div class="top-left">' + '<div>' + '<h3 class="date">' + parseDate(item.daily[index].dt) + '</h3>' + '</div>' +
+        //             '<div>' + '<h4 class="temp-range">' + item.daily[index].temp.max + '°' + '<br>' + item.daily[index].temp.min + '°' + '</h4>' + '</div>' +
+        //             '<div class="weather-status">' + dailyWeatherStatus() + '</div>' + '</div>' +
+        //             '<div class="top-right">' + '<div class="icon-img">' + '<img src="http://openweathermap.org/img/w/' + item.daily[index].weather[0].icon + '.png"' + '>' + '</div>' + '<h4 class="feels-like">' + "Feels Like " + item.daily[index].feels_like.day + '°' + '</h4>' + '</div>' + '</div>' +
+        //
+        //             //BOTTOM   ADD DAY/NIGHT TAGS FROM FONT AWESOME
+        //             // '<div class="current-bottom">' + '<div class="morn">' + '<h4>Morning</h4>' + '<h4>' + data.daily[0].temp.morn + '°' + '</h4>' + '<h4>' + '<i class="far fa-sun">' + '</i>' + '</h4>' + '</div>' +
+        //             // '<div class="afternoon">' + '<h4>Afternoon</h4>' + '<h4>' + data.daily[0].temp.day + '°' + '</h4>' + '<h4>' + '<i class="far fa-sun">' + '</i>' + '</h4>' + '</div>' +
+        //             // '<div class="eve">' + '<h4>Evening</h4>' + '<h4>' + data.daily[0].temp.eve + '°' + '</h4>' + '<h4>' + '<i class="far fa-moon">' + '</i>' + '</h4>' + '</div>' +
+        //             // '<div class="night">' + '<h4>Overnight</h4>' + '<h4>' + data.daily[0].temp.night + '°' + '</h4>' + '<h4>' + '<i class="far fa-moon">' + '</i>' + '</h4>' + '</div>' + '</div>' + '</div>';
+        //
+        //         console.log(item.daily[index]);
+        //         $('#weekly').append(html);
+        //
+        //     });
+        //
+        //     }
+        //
+        // weeklyForecast();
+
+
+
+
+
+
+
+
+
+
+    currentWeather();
+
+
+
+
+        });
+
+
     });
+
+
+
+
 
 </script>
 
