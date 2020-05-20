@@ -22,13 +22,13 @@
 
 
 
-<div class="weekly-forecast">
-    <div id="weekly"></div>
-</div>
+    <div class="weekly-forecast">
+        <div id="weekly"></div>
+    </div>
 
-<div class="map">
-    <div id='map'></div>
-</div>
+    <div class="map">
+        <div id='map'></div>
+    </div>
 </div>
 
 
@@ -93,7 +93,7 @@
 
 
             // $.get(weatherURL, weatherOptions).done(function (data) {
-                // console.log(data);
+
                 // console.log(data.current.weather[0].icon);
                 // console.log(data.daily[0].temp.max);
                 // console.log(data.daily[1].pressure);
@@ -197,83 +197,84 @@
         //WHY DO I HAVE TO CLICK TWICE?
 
 
-        function weeklyForecast() {
+        function weeklyForecast(city) {
             $.get(weatherURL, weatherOptions).done(function (data) {
+                // console.log(data);
                 // $('.each-day').empty();
                 $('#weekly').empty();
                 for (var i = 0; i < data.daily.length - 3; i++) {
                     var html = '';
-                    html += '<div class="each-day">' + '<h3 class="date">' + parseDate(data.daily[i].dt) + '</h3>' + '<h3 class="location" id="city">' + location +'</h3>'
+                    html += '<div class="each-day">' + '<h3 class="date">' + parseDate(data.daily[i].dt) + '</h3>' + '<h3 class="location" id="city">' + city +'</h3>'
                         + '<h4 class="weekly-temp-range">' + data.daily[i].temp.max + '°' + '<br>' + data.daily[i].temp.min + '°' + '</h4>'
                         + '<div class="weekly-icon-img">' + '<img src="http://openweathermap.org/img/w/' + data.daily[i].weather[0].icon + '.png"' + '>' + '</div>'
-                        + '<div class="weekly-weather-status">' + dailyWeatherStatus() + '</div>' + '</div>';
+                        + '</div>';
 
-                    function dailyWeatherStatus() {
-                        var dailyWeather = data.daily[i].weather[0].icon;
-                        switch (dailyWeather) {
-                            case "01d":
-                                return "Sunny";
-                                break;
-                            case "02d":
-                                return "Few Clouds";
-                                break;
-                            case "03d":
-                                return "Scattered Clouds";
-                                break;
-                            case "04d":
-                                return "Broken Clouds";
-                                break;
-                            case "09d":
-                                return "Showers";
-                                break;
-                            case "10d":
-                                return "Rain";
-                                break;
-                            case "11d":
-                                return "Thunderstorms";
-                                break;
-                            case "13d":
-                                return "Snow";
-                                break;
-                            case "50d":
-                                return "Mist";
-                                break;
-                            case "":
-                                return "All\'s Well"
-                                break;
-                            case "01n":
-                                return "Night" + '<br>' + "Clear";
-                                break;
-                            case "02n":
-                                return "Night" + '<br>' + "Few Clouds";
-                                break;
-                            case "03n":
-                                return "Night" + '<br>' + "Scattered Clouds";
-                                break;
-                            case "04n":
-                                return "Night" + '<br>' + "Broken Clouds";
-                                break;
-                            case "09n":
-                                return "Night" + '<br>' + "Showers";
-                                break;
-                            case "10n":
-                                return "Night" + '<br>' + "Rain";
-                                break;
-                            case "11n":
-                                return "Night" + '<br>' + "Thunderstorms";
-                                break;
-                            case "13n":
-                                return "Night" + '<br>' + "Snow";
-                                break;
-                            case "50n":
-                                return "Night" + '<br>' + "Mist";
-                                break;
-                            case "undefined":
-                                return "Night" + '<br>' + "All\'s Well"
-                                break;
-                        }
-
-                    }
+                    // function dailyWeatherStatus() {
+                    //     var dailyWeather = data.daily[i].weather[0].icon;
+                    //     switch (dailyWeather) {
+                    //         case "01d":
+                    //             return "Sunny";
+                    //             break;
+                    //         case "02d":
+                    //             return "Few Clouds";
+                    //             break;
+                    //         case "03d":
+                    //             return "Scattered Clouds";
+                    //             break;
+                    //         case "04d":
+                    //             return "Broken Clouds";
+                    //             break;
+                    //         case "09d":
+                    //             return "Showers";
+                    //             break;
+                    //         case "10d":
+                    //             return "Rain";
+                    //             break;
+                    //         case "11d":
+                    //             return "Thunderstorms";
+                    //             break;
+                    //         case "13d":
+                    //             return "Snow";
+                    //             break;
+                    //         case "50d":
+                    //             return "Mist";
+                    //             break;
+                    //         case "":
+                    //             return "All\'s Well"
+                    //             break;
+                    //         case "01n":
+                    //             return "Night" + '<br>' + "Clear";
+                    //             break;
+                    //         case "02n":
+                    //             return "Night" + '<br>' + "Few Clouds";
+                    //             break;
+                    //         case "03n":
+                    //             return "Night" + '<br>' + "Scattered Clouds";
+                    //             break;
+                    //         case "04n":
+                    //             return "Night" + '<br>' + "Broken Clouds";
+                    //             break;
+                    //         case "09n":
+                    //             return "Night" + '<br>' + "Showers";
+                    //             break;
+                    //         case "10n":
+                    //             return "Night" + '<br>' + "Rain";
+                    //             break;
+                    //         case "11n":
+                    //             return "Night" + '<br>' + "Thunderstorms";
+                    //             break;
+                    //         case "13n":
+                    //             return "Night" + '<br>' + "Snow";
+                    //             break;
+                    //         case "50n":
+                    //             return "Night" + '<br>' + "Mist";
+                    //             break;
+                    //         case "undefined":
+                    //             return "Night" + '<br>' + "All\'s Well"
+                    //             break;
+                    //     }
+                    //
+                    // }
 
                     $('#weekly').append(html);
                 }
@@ -281,7 +282,7 @@
             });
         }
 
-        var location = "San Antonio, Tx";
+
         function onDragEnd() {
             var lngLat = marker.getLngLat();
             var longitude = lngLat.lng;
@@ -290,19 +291,15 @@
             weatherOptions.lng = longitude
             reverseGeocode({lng: longitude, lat: latitude}, MAPBOX_KEY).then(function(result){
                 $('#city').empty();
-                // $('#city').html(result);
-                location = result;
-                new mapboxgl.Marker()
-                    .setLngLat(lngLat)
-                    .addTo(map);
-
                 console.log(result);
+            weeklyForecast(result);
             });
             // currentWeather();
-            weeklyForecast();
+            // city(location);
         }
-        var locationSearch = document.querySelector('#search-input');
 
+
+        var locationSearch = document.querySelector('#search-input');
 
         $('#search-btn').click(function (e){
             e.preventDefault();
@@ -312,24 +309,31 @@
                 map.setCenter(result);
                 map.setZoom(10);
                 marker.setLngLat(result);
-            weeklyForecast();
+
             onDragEnd();
+            // city(location);
             $('#search-input').val("");
             });
             // currentWeather();
-            onDragEnd();
-            weeklyForecast();
+            // onDragEnd();
+            // weeklyForecast();
         });
 
-        // function city() {
-        //     reverseGeocode(lngLat, MAPBOX_KEY).then(function (response) {
-        //         $('#city').html(response);
-        //     });
+        // function city(input) {
+        //     if (input.split(",").length === 3){
+        //         return input.split(",").slice(1).join(',');
+        //     } else if(input.split(",").length === 4){
+        //         return input.split(",").slice(1).join(',');
+        //     } else if(input.split(",").length === 5){
+        //         return input.split(",").slice(2).join(',');
+        //     }else if(input.split(",").length === 6){
+        //         return input.split(",").slice(3).join(',');
+        //     }
         // }
 
 
-        // currentWeather();
-        onDragEnd();
+        marker.on('dragend', onDragEnd);
+        // city(result);
         weeklyForecast();
 
         }); //NOTHING BEYOND THIS POINT
