@@ -3,9 +3,19 @@
     letter-spacing: .1em;
 }
 
-.container {
+body {
+    background-color: lightcyan;
+}
+
+.class {
     margin: 1em;
     font-family: 'Lato', sans-serif;
+}
+
+
+#title {
+    font-size: 3em;
+    margin: 1em;
 }
 
 .day {
@@ -106,8 +116,12 @@ img {
     /*flex-wrap: wrap;*/
     justify-content: center;
     align-items: center;
-    margin: 1em;
+    /*margin: 1em;*/
 
+}
+
+.search-bar {
+    margin: 1em;
 }
 
 .each-day {
@@ -118,10 +132,10 @@ img {
     border: 1px solid grey;
     border-radius: 4px;
     background-color: lightskyblue;
-    width: 235px;
+    width: 225px;
     /*width: calc(100% / 5); !*NEW*!*/
-    height: 250px;
-    margin-bottom: 1em;
+    height: 265px;
+    padding-bottom: 1em;
 }
 
 .each-day * {
@@ -149,7 +163,7 @@ img {
 
 
 .weekly-weather-status {
-    margin-top: 1em;
+    margin-top: -.5em;
     /*margin-right: -2.4em;*/
     display: flex;
     justify-content: center;
@@ -157,17 +171,25 @@ img {
 
 }
 
+.location {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: .5em;
+}
+
 .weekly-icon-img {
     margin-top: 1em;
 }
 
 .map {
-    margin-top: 4em;
+    margin-top: 5em;
 }
 
 #map {  /* This is how we change the size and style of the map-BUT-we must remove original style located inside of div */
     width: 100%;
-    height: 400px;
+    height: 250px;
 }
 
 

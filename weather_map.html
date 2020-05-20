@@ -11,6 +11,7 @@
 </head>
 <body>
 
+<h1 id="title">Weather API</h1>
 
 <div class="class">
 <!--    <div id="current"></div>-->
@@ -195,14 +196,14 @@
 
         //WHY DO I HAVE TO CLICK TWICE?
 
+
         function weeklyForecast() {
             $.get(weatherURL, weatherOptions).done(function (data) {
                 // $('.each-day').empty();
                 $('#weekly').empty();
                 for (var i = 0; i < data.daily.length - 3; i++) {
-
                     var html = '';
-                    html += '<div class="each-day">' + '<h3 class="date">' + parseDate(data.daily[i].dt) + '</h3>' + '<h3 id="city">' + location +'</h3>'
+                    html += '<div class="each-day">' + '<h3 class="date">' + parseDate(data.daily[i].dt) + '</h3>' + '<h3 class="location" id="city">' + location +'</h3>'
                         + '<h4 class="weekly-temp-range">' + data.daily[i].temp.max + '°' + '<br>' + data.daily[i].temp.min + '°' + '</h4>'
                         + '<div class="weekly-icon-img">' + '<img src="http://openweathermap.org/img/w/' + data.daily[i].weather[0].icon + '.png"' + '>' + '</div>'
                         + '<div class="weekly-weather-status">' + dailyWeatherStatus() + '</div>' + '</div>';
@@ -240,6 +241,36 @@
                             case "":
                                 return "All\'s Well"
                                 break;
+                            case "01n":
+                                return "Night" + '<br>' + "Clear";
+                                break;
+                            case "02n":
+                                return "Night" + '<br>' + "Few Clouds";
+                                break;
+                            case "03n":
+                                return "Night" + '<br>' + "Scattered Clouds";
+                                break;
+                            case "04n":
+                                return "Night" + '<br>' + "Broken Clouds";
+                                break;
+                            case "09n":
+                                return "Night" + '<br>' + "Showers";
+                                break;
+                            case "10n":
+                                return "Night" + '<br>' + "Rain";
+                                break;
+                            case "11n":
+                                return "Night" + '<br>' + "Thunderstorms";
+                                break;
+                            case "13n":
+                                return "Night" + '<br>' + "Snow";
+                                break;
+                            case "50n":
+                                return "Night" + '<br>' + "Mist";
+                                break;
+                            case "undefined":
+                                return "Night" + '<br>' + "All\'s Well"
+                                break;
                         }
 
                     }
@@ -250,7 +281,7 @@
             });
         }
 
-        var location;
+        var location = "San Antonio, Tx";
         function onDragEnd() {
             var lngLat = marker.getLngLat();
             var longitude = lngLat.lng;
@@ -283,8 +314,11 @@
                 marker.setLngLat(result);
             weeklyForecast();
             onDragEnd();
+            $('#search-input').val("");
             });
             // currentWeather();
+            onDragEnd();
+            weeklyForecast();
         });
 
         // function city() {
@@ -295,8 +329,8 @@
 
 
         // currentWeather();
-        weeklyForecast();
         onDragEnd();
+        weeklyForecast();
 
         }); //NOTHING BEYOND THIS POINT
 
