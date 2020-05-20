@@ -9,18 +9,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/weather_map.css">
 </head>
+
 <body>
 
 <h1 id="title">Weather API</h1>
 
 <div class="class">
-<!--    <div id="current"></div>-->
-        <div class="search-bar">
-            <input type="search" name="search" id="search-input" placeholder="search city">
-            <button id="search-btn" type="submit">search</button>
-        </div>
 
-
+    <div class="search-bar">
+        <input type="search" name="search" id="search-input" placeholder="search city">
+        <button id="search-btn" type="submit">search</button>
+    </div>
 
     <div class="weekly-forecast">
         <div id="weekly"></div>
@@ -30,8 +29,6 @@
         <div id='map'></div>
     </div>
 </div>
-
-
 
 
 <script src="http://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
@@ -52,29 +49,22 @@
             center: [-98.4936, 29.4241]
         });
 
-
         var marker = new mapboxgl.Marker({
             draggable: true
         })
             .setLngLat([-98.4936, 29.4241])
             .addTo(map);
 
-
         // console.log(onDragEnd());
         // console.log(marker.getLngLat());
 
     //send a request to OpenWeatherMap OneCAll API
     //creating variables that will hold values that we want to use
-    var weatherURL = 'https://api.openweathermap.org/data/2.5/onecall';
 
     //These are the key, value pairs that we want to be put in the query string...
     //we are separating out the long string of the querystring so that we can see clearly what we're wanting to get back from the API
 
-
-    // var latitude = lngLat.lat; console.log(lngLat);
-    // var longitude = lonLat.lon; console.log(lngLat.lon);
-    //     var lngLat = marker.getLngLat();
-    //     console.log(lngLat.lng, lngLat.lat);
+    var weatherURL = 'https://api.openweathermap.org/data/2.5/onecall';
     var weatherOptions = {
         lat: 29.4241,
         lon: -98.4936,
@@ -83,202 +73,22 @@
         units: 'imperial'
     };
 
-
-
     function parseDate(timestamp){
         return new Date(timestamp * 1000).toLocaleDateString();
-
     }
-    // $.get('weatherURL, weatherOptions'); //will concatinate all the desired data
-
-
-            // $.get(weatherURL, weatherOptions).done(function (data) {
-
-                // console.log(data.current.weather[0].icon);
-                // console.log(data.daily[0].temp.max);
-                // console.log(data.daily[1].pressure);
-
-
-        // var currentImg = 'http://openweathermap.org/img/w/[data.daily[0].weather[0].icon].png';
-
-
-
-        //         TOP
-        // function currentWeather() {
-        //     $.get(weatherURL, weatherOptions).done(function (data) {
-        //         // $('.day').empty();
-        //         $('#current').empty();
-        //         var html = '';
-        //         html += '<div class="day">' + '<div class="current-top">' + '<div class="top-left">' + '<div>' + '<h3 class="date">' + parseDate(data.daily[0].dt) + '</h3>' + '<h3 id="city"></h3>' + '</div>' +
-        //             '<div>' + '<h3 class="current-temp">' + data.current.temp + '°' + '</h3>' + '</div>' +
-        //             '<div class="weather-status">' + currentWeatherStatus() + '</div>' + '</div>' +
-        //             '<div class="top-right">' + '<div class="icon-img">' + '<img src="http://openweathermap.org/img/w/' + data.current.weather[0].icon + '.png"' + '>' + '</div>' + '<h4 class="feels-like">' + "Feels Like " + data.daily[0].feels_like.day + '°' + '</h4>' + '<h4 class="temp-range">' + data.daily[0].temp.max + '°' + "/" + data.daily[0].temp.min + '°' + '</h4>' + '</div>' + '</div>' +
-        //
-        //             //BOTTOM   ADD DAY/NIGHT TAGS FROM FONT AWESOME
-        //             '<div class="current-bottom">' + '<div class="morn">' + '<h4>Morning</h4>' + '<h4>' + data.daily[0].temp.morn + '°' + '</h4>' + '<h4>' + '<i class="far fa-sun">' + '</i>' + '</h4>' + '</div>' +
-        //             '<div class="afternoon">' + '<h4>Afternoon</h4>' + '<h4>' + data.daily[0].temp.day + '°' + '</h4>' + '<h4>' + '<i class="far fa-sun">' + '</i>' + '</h4>' + '</div>' +
-        //             '<div class="eve">' + '<h4>Evening</h4>' + '<h4>' + data.daily[0].temp.eve + '°' + '</h4>' + '<h4>' + '<i class="far fa-moon">' + '</i>' + '</h4>' + '</div>' +
-        //             '<div class="night">' + '<h4>Overnight</h4>' + '<h4>' + data.daily[0].temp.night + '°' + '</h4>' + '<h4>' + '<i class="far fa-moon">' + '</i>' + '</h4>' + '</div>' + '</div>' + '</div>';
-        //
-        //         function currentWeatherStatus() {
-        //             var weather = data.current.weather[0].icon;
-        //             switch (weather) {
-        //                 case "01d":
-        //                     return "Sunny";
-        //                     break;
-        //                 case "02d":
-        //                     return "Few Clouds";
-        //                     break;
-        //                 case "03d":
-        //                     return "Scattered Clouds";
-        //                     break;
-        //                 case "04d":
-        //                     return "Broken Clouds";
-        //                     break;
-        //                 case "09d":
-        //                     return "Showers";
-        //                     break;
-        //                 case "10d":
-        //                     return "Rain";
-        //                     break;
-        //                 case "11d":
-        //                     return "Thunderstorms";
-        //                     break;
-        //                 case "13d":
-        //                     return "Snow";
-        //                     break;
-        //                 case "50d":
-        //                     return "Mist";
-        //                     break;
-        //                 case "undefined":
-        //                     return "All\'s Well"
-        //                     break;
-        //                 case "01n":
-        //                     return "Night" + '<br>' + "Clear";
-        //                     break;
-        //                 case "02n":
-        //                     return "Night" + '<br>' + "Few Clouds";
-        //                     break;
-        //                 case "03n":
-        //                     return "Night" + '<br>' + "Scattered Clouds";
-        //                     break;
-        //                 case "04n":
-        //                     return "Night" + '<br>' + "Broken Clouds";
-        //                     break;
-        //                 case "09n":
-        //                     return "Night" + '<br>' + "Showers";
-        //                     break;
-        //                 case "10n":
-        //                     return "Night" + '<br>' + "Rain";
-        //                     break;
-        //                 case "11n":
-        //                     return "Night" + '<br>' + "Thunderstorms";
-        //                     break;
-        //                 case "13n":
-        //                     return "Night" + '<br>' + "Snow";
-        //                     break;
-        //                 case "50n":
-        //                     return "Night" + '<br>' + "Mist";
-        //                     break;
-        //                 case "undefined":
-        //                     return "Night" + '<br>' + "All\'s Well"
-        //                     break;
-        //             }
-        //
-        //         }
-        //         console.log(data.daily[0].weather[0].icon);
-        //         $('#current').append(html);
-        //     });
-        // }  //END OF CURRENT WEATHER FUNCTION
-
-
-        // WEEKLY FORECAST
-
-        //WHY DO I HAVE TO CLICK TWICE?
-
 
         function weeklyForecast(city) {
             $.get(weatherURL, weatherOptions).done(function (data) {
-                // console.log(data);
-                // $('.each-day').empty();
+                console.log(data);
                 $('#weekly').empty();
                 for (var i = 0; i < data.daily.length - 3; i++) {
                     var html = '';
                     html += '<div class="each-day">' + '<h3 class="date">' + parseDate(data.daily[i].dt) + '</h3>' + '<h3 class="location" id="city">' + city +'</h3>'
                         + '<h4 class="weekly-temp-range">' + data.daily[i].temp.max + '°' + '<br>' + data.daily[i].temp.min + '°' + '</h4>'
-                        + '<div class="weekly-icon-img">' + '<img src="http://openweathermap.org/img/w/' + data.daily[i].weather[0].icon + '.png"' + '>' + '</div>'
+                        + '<div class="weekly-icon-img">' + '<img src="http://openweathermap.org/img/w/' + data.daily[i].weather[0].icon + '.png"' + '>' + '<h4 class="weekly-weather-status">' + data.daily[i].weather[0].description + '</h4>' + '</div>'
                         + '</div>';
-
-                    // function dailyWeatherStatus() {
-                    //     var dailyWeather = data.daily[i].weather[0].icon;
-                    //     switch (dailyWeather) {
-                    //         case "01d":
-                    //             return "Sunny";
-                    //             break;
-                    //         case "02d":
-                    //             return "Few Clouds";
-                    //             break;
-                    //         case "03d":
-                    //             return "Scattered Clouds";
-                    //             break;
-                    //         case "04d":
-                    //             return "Broken Clouds";
-                    //             break;
-                    //         case "09d":
-                    //             return "Showers";
-                    //             break;
-                    //         case "10d":
-                    //             return "Rain";
-                    //             break;
-                    //         case "11d":
-                    //             return "Thunderstorms";
-                    //             break;
-                    //         case "13d":
-                    //             return "Snow";
-                    //             break;
-                    //         case "50d":
-                    //             return "Mist";
-                    //             break;
-                    //         case "":
-                    //             return "All\'s Well"
-                    //             break;
-                    //         case "01n":
-                    //             return "Night" + '<br>' + "Clear";
-                    //             break;
-                    //         case "02n":
-                    //             return "Night" + '<br>' + "Few Clouds";
-                    //             break;
-                    //         case "03n":
-                    //             return "Night" + '<br>' + "Scattered Clouds";
-                    //             break;
-                    //         case "04n":
-                    //             return "Night" + '<br>' + "Broken Clouds";
-                    //             break;
-                    //         case "09n":
-                    //             return "Night" + '<br>' + "Showers";
-                    //             break;
-                    //         case "10n":
-                    //             return "Night" + '<br>' + "Rain";
-                    //             break;
-                    //         case "11n":
-                    //             return "Night" + '<br>' + "Thunderstorms";
-                    //             break;
-                    //         case "13n":
-                    //             return "Night" + '<br>' + "Snow";
-                    //             break;
-                    //         case "50n":
-                    //             return "Night" + '<br>' + "Mist";
-                    //             break;
-                    //         case "undefined":
-                    //             return "Night" + '<br>' + "All\'s Well"
-                    //             break;
-                    //     }
-                    //
-                    // }
-
                     $('#weekly').append(html);
                 }
-
             });
         }
 
@@ -291,11 +101,9 @@
             weatherOptions.lng = longitude
             reverseGeocode({lng: longitude, lat: latitude}, MAPBOX_KEY).then(function(result){
                 $('#city').empty();
-                console.log(result);
+                // console.log(result); //This result gives us our city name from the reverse geocode
             weeklyForecast(result);
             });
-            // currentWeather();
-            // city(location);
         }
 
 
@@ -305,35 +113,18 @@
             e.preventDefault();
             geocode(locationSearch.value, MAPBOX_KEY).then(function(result) {
                 console.log(result);
-
                 map.setCenter(result);
                 map.setZoom(10);
                 marker.setLngLat(result);
-
-            onDragEnd();
-            // city(location);
+            onDragEnd(); //marker will relocate and the lngLat will update
             $('#search-input').val("");
+
             });
-            // currentWeather();
-            // onDragEnd();
-            // weeklyForecast();
+
         });
 
-        // function city(input) {
-        //     if (input.split(",").length === 3){
-        //         return input.split(",").slice(1).join(',');
-        //     } else if(input.split(",").length === 4){
-        //         return input.split(",").slice(1).join(',');
-        //     } else if(input.split(",").length === 5){
-        //         return input.split(",").slice(2).join(',');
-        //     }else if(input.split(",").length === 6){
-        //         return input.split(",").slice(3).join(',');
-        //     }
-        // }
-
-
         marker.on('dragend', onDragEnd);
-        // city(result);
+        onDragEnd(); //By calling this function we get our city to post at the first run of the page
         weeklyForecast();
 
         }); //NOTHING BEYOND THIS POINT

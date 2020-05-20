@@ -71,9 +71,6 @@ body {
 
 }
 
-img {
-    width: 90px;
-}
 
 .icon-img {
     /*padding-bottom: -1em;*/
@@ -180,7 +177,18 @@ img {
 }
 
 .weekly-icon-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-top: 1em;
+    width: 90px;
 }
 
 .map {
