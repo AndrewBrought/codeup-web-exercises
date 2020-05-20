@@ -52,7 +52,7 @@ function reverseGeocode(coordinates, token) {
         });
 }
 
-mapboxgl.accessToken = mapboxKey;
+mapboxgl.accessToken = MAPBOX_KEY;
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v9',

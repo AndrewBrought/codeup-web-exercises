@@ -24,7 +24,7 @@
 
 <script>
     // (function(){ //IIfE Start
-    mapboxgl.accessToken = mapboxKey;
+    mapboxgl.accessToken = MAPBOX_KEY;
     var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9',
@@ -34,10 +34,11 @@
 
     //========= GEO CODING ========
     // geocode method from mapbox-geocoder-util.js
-    geocode("Whitefish, Montana", mapboxKey).then(function(result) {
+    geocode("Whitefish, Montana", MAPBOX_KEY).then(function(result) {
         console.log(result);
         map.setCenter(result);
         map.setZoom(10);
+        console.log(result[0], result[1]);
     });
 
     //reverse geocode method from mapbox-geocode-util.js

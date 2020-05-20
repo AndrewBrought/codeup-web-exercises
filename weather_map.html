@@ -14,7 +14,12 @@
 
 <div class="class">
     <div id="current"></div>
-</div>
+        <div class="search-bar">
+            <input type="search" name="search" id="search-input" placeholder="search city">
+            <button id="search-btn" type="submit">search</button>
+        </div>
+
+
 
 <div class="weekly-forecast">
     <div id="weekly"></div>
@@ -23,7 +28,7 @@
 <div class="map">
     <div id='map'></div>
 </div>
-
+</div>
 
 
 
@@ -31,6 +36,8 @@
 <script src="http://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
 <script src='https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.js'></script>
 <script src="js/keys.js"></script>
+<script src="js/mapbox-geocode-utils.js"></script>
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
 <script>
     "use strict";
 
@@ -51,14 +58,8 @@
             .setLngLat([-98.4936, 29.4241])
             .addTo(map);
 
-        function onDragEnd() {
-            var lngLat = marker.getLngLat();
-            coordinates.style.display = 'block';
-            coordinates.innerHTML =
-                'Longitude: ' + lngLat.lng + '<br/>' + 'Latitude: ' + lngLat.lat;
-            console.log(coordinates);
-        }
-        marker.on('dragend', onDragEnd);
+
+        // console.log(onDragEnd());
         // console.log(marker.getLngLat());
 
     //send a request to OpenWeatherMap OneCAll API
@@ -71,13 +72,17 @@
 
     // var latitude = lngLat.lat; console.log(lngLat);
     // var longitude = lonLat.lon; console.log(lngLat.lon);
+    //     var lngLat = marker.getLngLat();
+    //     console.log(lngLat.lng, lngLat.lat);
     var weatherOptions = {
-        lat: -98.4936,
-        lon: 29.4241,
+        lat: 29.4241,
+        lon: -98.4936,
         appid: OPEN_WEATHER_APPID,
         exclude: 'minutely, hourly',
         units: 'imperial'
     };
+
+
 
     function parseDate(timestamp){
         return new Date(timestamp * 1000).toLocaleDateString();
@@ -85,151 +90,215 @@
     }
     // $.get('weatherURL, weatherOptions'); //will concatinate all the desired data
 
-    $.get(weatherURL, weatherOptions).done(function(data){
-        console.log(data);
-        console.log(data.daily[0].temp.max);
-        console.log(data.daily[1].pressure);
+
+            // $.get(weatherURL, weatherOptions).done(function (data) {
+                // console.log(data);
+                // console.log(data.current.weather[0].icon);
+                // console.log(data.daily[0].temp.max);
+                // console.log(data.daily[1].pressure);
+
 
         // var currentImg = 'http://openweathermap.org/img/w/[data.daily[0].weather[0].icon].png';
-        function currentWeatherStatus() {
-            var weather = data.current.weather[0].icon;
-            switch (weather) {
-                case "01d":
-                    return "Sunny";
-                    break;
-                case "02d":
-                    return "Few Clouds";
-                    break;
-                case "03d":
-                    return "Scattered Clouds";
-                    break;
-                case "04d":
-                    return "Broken Clouds";
-                    break;
-                case "09d":
-                    return "Showers";
-                    break;
-                case "10d":
-                    return "Rain";
-                    break;
-                case "11d":
-                    return "Thunderstorms";
-                    break;
-                case "13d":
-                    return "Snow";
-                    break;
-                case "50d":
-                    return "Mist";
-                    break;
-            }
-        }
+
 
 
         //         TOP
-        function currentWeather() {
-            var html = '';
-            html += '<div class="day">' + '<div class="current-top">' + '<div class="top-left">' + '<div>' + '<h3 class="date">' + parseDate(data.daily[0].dt) + '</h3>' + '</div>' +
-                '<div>' + '<h3 class="current-temp">' + data.current.temp + '°' + '</h3>' + '</div>' +
-                '<div class="weather-status">' + currentWeatherStatus() + '</div>' + '</div>' +
-                '<div class="top-right">' + '<div class="icon-img">' + '<img src="http://openweathermap.org/img/w/' + data.daily[0].weather[0].icon + '.png"' + '>' + '</div>' + '<h4 class="feels-like">' + "Feels Like " + data.daily[0].feels_like.day + '°' + '</h4>' + '<h4 class="temp-range">' + data.daily[0].temp.max + '°' + "/" + data.daily[0].temp.min + '°' + '</h4>' + '</div>' + '</div>' +
-
-                //BOTTOM   ADD DAY/NIGHT TAGS FROM FONT AWESOME
-                '<div class="current-bottom">' + '<div class="morn">' + '<h4>Morning</h4>' + '<h4>' + data.daily[0].temp.morn + '°' + '</h4>' + '<h4>' + '<i class="far fa-sun">' + '</i>' + '</h4>' + '</div>' +
-                '<div class="afternoon">' + '<h4>Afternoon</h4>' + '<h4>' + data.daily[0].temp.day + '°' + '</h4>' + '<h4>' + '<i class="far fa-sun">' + '</i>' + '</h4>' + '</div>' +
-                '<div class="eve">' + '<h4>Evening</h4>' + '<h4>' + data.daily[0].temp.eve + '°' + '</h4>' + '<h4>' + '<i class="far fa-moon">' + '</i>' + '</h4>' + '</div>' +
-                '<div class="night">' + '<h4>Overnight</h4>' + '<h4>' + data.daily[0].temp.night + '°' + '</h4>' + '<h4>' + '<i class="far fa-moon">' + '</i>' + '</h4>' + '</div>' + '</div>' + '</div>';
-
-            console.log(data.daily[0].weather[0].icon);
-            $('#current').append(html);
-
-            // var todayDate = new Date(data.daily[0].dt * 1000);
-            // console.log(parseDate(data.daily[0].dt));  //new Date(1589824800 * 1000).toDateString();
-        }  //END OF CURRENT WEATHER FUNCTION
+        // function currentWeather() {
+        //     $.get(weatherURL, weatherOptions).done(function (data) {
+        //         // $('.day').empty();
+        //         $('#current').empty();
+        //         var html = '';
+        //         html += '<div class="day">' + '<div class="current-top">' + '<div class="top-left">' + '<div>' + '<h3 class="date">' + parseDate(data.daily[0].dt) + '</h3>' + '<h3 id="city"></h3>' + '</div>' +
+        //             '<div>' + '<h3 class="current-temp">' + data.current.temp + '°' + '</h3>' + '</div>' +
+        //             '<div class="weather-status">' + currentWeatherStatus() + '</div>' + '</div>' +
+        //             '<div class="top-right">' + '<div class="icon-img">' + '<img src="http://openweathermap.org/img/w/' + data.current.weather[0].icon + '.png"' + '>' + '</div>' + '<h4 class="feels-like">' + "Feels Like " + data.daily[0].feels_like.day + '°' + '</h4>' + '<h4 class="temp-range">' + data.daily[0].temp.max + '°' + "/" + data.daily[0].temp.min + '°' + '</h4>' + '</div>' + '</div>' +
+        //
+        //             //BOTTOM   ADD DAY/NIGHT TAGS FROM FONT AWESOME
+        //             '<div class="current-bottom">' + '<div class="morn">' + '<h4>Morning</h4>' + '<h4>' + data.daily[0].temp.morn + '°' + '</h4>' + '<h4>' + '<i class="far fa-sun">' + '</i>' + '</h4>' + '</div>' +
+        //             '<div class="afternoon">' + '<h4>Afternoon</h4>' + '<h4>' + data.daily[0].temp.day + '°' + '</h4>' + '<h4>' + '<i class="far fa-sun">' + '</i>' + '</h4>' + '</div>' +
+        //             '<div class="eve">' + '<h4>Evening</h4>' + '<h4>' + data.daily[0].temp.eve + '°' + '</h4>' + '<h4>' + '<i class="far fa-moon">' + '</i>' + '</h4>' + '</div>' +
+        //             '<div class="night">' + '<h4>Overnight</h4>' + '<h4>' + data.daily[0].temp.night + '°' + '</h4>' + '<h4>' + '<i class="far fa-moon">' + '</i>' + '</h4>' + '</div>' + '</div>' + '</div>';
+        //
+        //         function currentWeatherStatus() {
+        //             var weather = data.current.weather[0].icon;
+        //             switch (weather) {
+        //                 case "01d":
+        //                     return "Sunny";
+        //                     break;
+        //                 case "02d":
+        //                     return "Few Clouds";
+        //                     break;
+        //                 case "03d":
+        //                     return "Scattered Clouds";
+        //                     break;
+        //                 case "04d":
+        //                     return "Broken Clouds";
+        //                     break;
+        //                 case "09d":
+        //                     return "Showers";
+        //                     break;
+        //                 case "10d":
+        //                     return "Rain";
+        //                     break;
+        //                 case "11d":
+        //                     return "Thunderstorms";
+        //                     break;
+        //                 case "13d":
+        //                     return "Snow";
+        //                     break;
+        //                 case "50d":
+        //                     return "Mist";
+        //                     break;
+        //                 case "undefined":
+        //                     return "All\'s Well"
+        //                     break;
+        //                 case "01n":
+        //                     return "Night" + '<br>' + "Clear";
+        //                     break;
+        //                 case "02n":
+        //                     return "Night" + '<br>' + "Few Clouds";
+        //                     break;
+        //                 case "03n":
+        //                     return "Night" + '<br>' + "Scattered Clouds";
+        //                     break;
+        //                 case "04n":
+        //                     return "Night" + '<br>' + "Broken Clouds";
+        //                     break;
+        //                 case "09n":
+        //                     return "Night" + '<br>' + "Showers";
+        //                     break;
+        //                 case "10n":
+        //                     return "Night" + '<br>' + "Rain";
+        //                     break;
+        //                 case "11n":
+        //                     return "Night" + '<br>' + "Thunderstorms";
+        //                     break;
+        //                 case "13n":
+        //                     return "Night" + '<br>' + "Snow";
+        //                     break;
+        //                 case "50n":
+        //                     return "Night" + '<br>' + "Mist";
+        //                     break;
+        //                 case "undefined":
+        //                     return "Night" + '<br>' + "All\'s Well"
+        //                     break;
+        //             }
+        //
+        //         }
+        //         console.log(data.daily[0].weather[0].icon);
+        //         $('#current').append(html);
+        //     });
+        // }  //END OF CURRENT WEATHER FUNCTION
 
 
         // WEEKLY FORECAST
 
+        //WHY DO I HAVE TO CLICK TWICE?
 
+        function weeklyForecast() {
+            $.get(weatherURL, weatherOptions).done(function (data) {
+                // $('.each-day').empty();
+                $('#weekly').empty();
+                for (var i = 0; i < data.daily.length - 3; i++) {
 
+                    var html = '';
+                    html += '<div class="each-day">' + '<h3 class="date">' + parseDate(data.daily[i].dt) + '</h3>' + '<h3 id="city">' + location +'</h3>'
+                        + '<h4 class="weekly-temp-range">' + data.daily[i].temp.max + '°' + '<br>' + data.daily[i].temp.min + '°' + '</h4>'
+                        + '<div class="weekly-icon-img">' + '<img src="http://openweathermap.org/img/w/' + data.daily[i].weather[0].icon + '.png"' + '>' + '</div>'
+                        + '<div class="weekly-weather-status">' + dailyWeatherStatus() + '</div>' + '</div>';
 
+                    function dailyWeatherStatus() {
+                        var dailyWeather = data.daily[i].weather[0].icon;
+                        switch (dailyWeather) {
+                            case "01d":
+                                return "Sunny";
+                                break;
+                            case "02d":
+                                return "Few Clouds";
+                                break;
+                            case "03d":
+                                return "Scattered Clouds";
+                                break;
+                            case "04d":
+                                return "Broken Clouds";
+                                break;
+                            case "09d":
+                                return "Showers";
+                                break;
+                            case "10d":
+                                return "Rain";
+                                break;
+                            case "11d":
+                                return "Thunderstorms";
+                                break;
+                            case "13d":
+                                return "Snow";
+                                break;
+                            case "50d":
+                                return "Mist";
+                                break;
+                            case "":
+                                return "All\'s Well"
+                                break;
+                        }
 
-        function dailyWeatherStatus() {
-            var dailyWeather = item.daily[index].weather[0].icon;
-            switch (dailyWeather) {
-                case "01d":
-                    return "Sunny";
-                    break;
-                case "02d":
-                    return "Few Clouds";
-                    break;
-                case "03d":
-                    return "Scattered Clouds";
-                    break;
-                case "04d":
-                    return "Broken Clouds";
-                    break;
-                case "09d":
-                    return "Showers";
-                    break;
-                case "10d":
-                    return "Rain";
-                    break;
-                case "11d":
-                    return "Thunderstorms";
-                    break;
-                case "13d":
-                    return "Snow";
-                    break;
-                case "50d":
-                    return "Mist";
-                    break;
-            }
+                    }
+
+                    $('#weekly').append(html);
+                }
+
+            });
         }
 
+        var location;
+        function onDragEnd() {
+            var lngLat = marker.getLngLat();
+            var longitude = lngLat.lng;
+            var latitude = lngLat.lat;
+            weatherOptions.lat = latitude
+            weatherOptions.lng = longitude
+            reverseGeocode({lng: longitude, lat: latitude}, MAPBOX_KEY).then(function(result){
+                $('#city').empty();
+                // $('#city').html(result);
+                location = result;
+                new mapboxgl.Marker()
+                    .setLngLat(lngLat)
+                    .addTo(map);
 
-        //     function weeklyForecast() {
-        //         $.each(data, function(index, item){
-        //         var html = '';
-        //         html += '<div class="day">' + '<div class="current-top">' + '<div class="top-left">' + '<div>' + '<h3 class="date">' + parseDate(item.daily[index].dt) + '</h3>' + '</div>' +
-        //             '<div>' + '<h4 class="temp-range">' + item.daily[index].temp.max + '°' + '<br>' + item.daily[index].temp.min + '°' + '</h4>' + '</div>' +
-        //             '<div class="weather-status">' + dailyWeatherStatus() + '</div>' + '</div>' +
-        //             '<div class="top-right">' + '<div class="icon-img">' + '<img src="http://openweathermap.org/img/w/' + item.daily[index].weather[0].icon + '.png"' + '>' + '</div>' + '<h4 class="feels-like">' + "Feels Like " + item.daily[index].feels_like.day + '°' + '</h4>' + '</div>' + '</div>' +
-        //
-        //             //BOTTOM   ADD DAY/NIGHT TAGS FROM FONT AWESOME
-        //             // '<div class="current-bottom">' + '<div class="morn">' + '<h4>Morning</h4>' + '<h4>' + data.daily[0].temp.morn + '°' + '</h4>' + '<h4>' + '<i class="far fa-sun">' + '</i>' + '</h4>' + '</div>' +
-        //             // '<div class="afternoon">' + '<h4>Afternoon</h4>' + '<h4>' + data.daily[0].temp.day + '°' + '</h4>' + '<h4>' + '<i class="far fa-sun">' + '</i>' + '</h4>' + '</div>' +
-        //             // '<div class="eve">' + '<h4>Evening</h4>' + '<h4>' + data.daily[0].temp.eve + '°' + '</h4>' + '<h4>' + '<i class="far fa-moon">' + '</i>' + '</h4>' + '</div>' +
-        //             // '<div class="night">' + '<h4>Overnight</h4>' + '<h4>' + data.daily[0].temp.night + '°' + '</h4>' + '<h4>' + '<i class="far fa-moon">' + '</i>' + '</h4>' + '</div>' + '</div>' + '</div>';
-        //
-        //         console.log(item.daily[index]);
-        //         $('#weekly').append(html);
-        //
-        //     });
-        //
-        //     }
-        //
-        // weeklyForecast();
+                console.log(result);
+            });
+            // currentWeather();
+            weeklyForecast();
+        }
+        var locationSearch = document.querySelector('#search-input');
 
 
+        $('#search-btn').click(function (e){
+            e.preventDefault();
+            geocode(locationSearch.value, MAPBOX_KEY).then(function(result) {
+                console.log(result);
 
-
-
-
-
-
-
-
-    currentWeather();
-
-
-
-
+                map.setCenter(result);
+                map.setZoom(10);
+                marker.setLngLat(result);
+            weeklyForecast();
+            onDragEnd();
+            });
+            // currentWeather();
         });
 
+        // function city() {
+        //     reverseGeocode(lngLat, MAPBOX_KEY).then(function (response) {
+        //         $('#city').html(response);
+        //     });
+        // }
 
-    });
 
+        // currentWeather();
+        weeklyForecast();
+        onDragEnd();
 
+        }); //NOTHING BEYOND THIS POINT
 
 
 

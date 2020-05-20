@@ -20,13 +20,10 @@
     /*align-items: center;*/
     /*justify-content: center;*/
     width: 500px;
-    height: 800px;
+    height: 410px;
     margin-left: 2em;
 }
 
-.date{
-    /*margin-right: -7em;*/
-}
 
 .current-top {
     display: grid;
@@ -105,11 +102,67 @@ img {
 }
 
 .weekly-forecast {
+    display: flex;
+    /*flex-wrap: wrap;*/
+    justify-content: center;
+    align-items: center;
     margin: 1em;
+
+}
+
+.each-day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*align-items: center; !*NEW*!*/
+    border: 1px solid grey;
+    border-radius: 4px;
+    background-color: lightskyblue;
+    width: 235px;
+    /*width: calc(100% / 5); !*NEW*!*/
+    height: 250px;
+    margin-bottom: 1em;
+}
+
+.each-day * {
+    font-size: small;
 }
 
 #weekly {
-    width: 95%;
+    display: flex;
+    /*align-items: center;*/
+    justify-content: space-evenly;
+    height:200px;
+
+}
+
+/*.each-day .top-left {*/
+/*    display: flex;*/
+/*    !*justify-content: center;*!*/
+
+/*}*/
+
+.weekly-temp-range {
+    margin-bottom: -1.3em;
+    /*padding-left: 3em;*/
+}
+
+
+.weekly-weather-status {
+    margin-top: 1em;
+    /*margin-right: -2.4em;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.weekly-icon-img {
+    margin-top: 1em;
+}
+
+.map {
+    margin-top: 4em;
 }
 
 #map {  /* This is how we change the size and style of the map-BUT-we must remove original style located inside of div */

@@ -23,7 +23,7 @@
 
 <script>
 
-    mapboxgl.accessToken = mapboxKey;
+    mapboxgl.accessToken = MAPBOX_KEY;
     var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9',
@@ -36,7 +36,7 @@
     //Where does the marker exist on the map
     lincolnMarker.setLngLat([-77.0502, 38.8893]);
     lincolnMarker.addTo(map); //name of the container in our initialized map
-
+    lincolnMarker.getLngLat();
     var lincolnPopup = new mapboxgl.Popup();
     lincolnPopup.setHTML('<h3>Lincoln Memorial!</h3>')
     lincolnMarker.setPopup(lincolnPopup);
@@ -44,7 +44,7 @@
     lincolnMarker.setDraggable(true);
     lincolnMarker.on('dragend', function () {
         // coords.innerHTML = lincolnPopup.getLngLat();
-        lincolnPopup.setHTML('<h3>lincolnMarker.getLngLAt()</h3>');
+        lincolnPopup.setHTML('<h3>' + lngLat.lng + lngLat.lat + '</h3>');
     })
 
 </script>
