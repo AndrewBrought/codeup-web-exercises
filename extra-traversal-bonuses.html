@@ -150,23 +150,41 @@
     // ========================= .each() =========================
 
     // Highlight the first nested element inside all article elements
+    $('article').each(function(){
+        $(this).find('ol').children().first().css('background-color', "black");
+    });
 
 
     // Highlight the second list item of all ordered lists
-
+$('ol').each(function () {
+    $(this).children().eq(1).css('background-color', 'white');
+})
 
     // Highlight the third list item of all ordered lists
-
+    $('ol').each(function () {
+        $(this).children().eq(2).css('background-color', 'purple');
+    })
 
 
 
     // ========================= more complex combinations =========================
 
     // Highlight the first li of the second ordered list
-
+    $('ol').eq(1).children().first().css('background-color', 'green');
 
     // alert each of the top five items when double clicking on the header for a section
+    // $('h3').each(function() {
+    //     $(this).click(function(){
+    //        alert($('h3') + $('section').eq(0) + $('section').eq(1) + $('section').eq(2) + $('section').eq(3));
+    //
+    //     });
+    // });
 
+    $('h3').dblclick(function(){
+        console.log($(this).parent().children().last().children().children());
+        $(this).parent().children().last().children().children().each(function(index, element){
+            alert($(element).text());
+        });
 
     // Give a azure background color to every other list item (first item should be azure)
 
