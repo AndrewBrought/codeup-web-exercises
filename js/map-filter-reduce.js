@@ -66,23 +66,17 @@ console.log(averageYears);
 
 
 
-     function onlyUnique(value, index, self) {
-      return self.indexOf(value) === index;
-     }
+// ====BONUS ======
+     let totalLanguages = users.reduce((sum, user) => sum + user.languages + ",", "");
+     console.log("total Languages: " + totalLanguages);
 
 
-     // let arr = users.concat(users.languages)
-     // let userLanguages = users.map((user) => user.languages.concat(user.languages));
-     var unique = user.languages.split(",");
-     unique += users.filter((user, index, value) => user.languages.indexOf(value) === index).join(",");
+     let newTL=totalLanguages.substring(0, totalLanguages.length-1).split(",");
+     console.log(newTL);
+     var unique = newTL.filter((v, i, a) => a.indexOf(v) === i);
      console.log(unique);
 
-     // console.log(unique);
-     // }
-     // console.log(getUniqueValues(userLanguages));
 
-     //  let unique = users.filter((user, index, arr) => arr.indexOf(user.languages) === index);
-     // console.log(unique);
 
 
 

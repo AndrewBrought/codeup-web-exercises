@@ -389,6 +389,51 @@ console.log(countWords("this is 4 words"));
 console.log(countWords(2));
 
 
+var hamsters = [
+    {
+        name: "Hamtaro",
+        heightInMM: 86,
+        fur: ['orange', 'white'],
+        gender: "male",
+        dateOfBirth: "August 6"
+    } , {
+        name: "Bijou",
+        heightInMM: 75,
+        fur: ['white'],
+        gender: "female",
+        dateOfBirth: "July 10"
+    } , {
+        name: "Oxnard",
+        heightInMM: 100,
+        fur: ['grey', 'white'],
+        gender: "male",
+        dateOfBirth: "May 3"
+    } , {
+        name: "Boss",
+        heightInMM: 120,
+        fur: ['black', 'cream'],
+        gender: "male",
+        dateOfBirth: "Spetember 21"
+    } , {
+        name: "Snoozer",
+        heightInMM: 85,
+        fur: ['brown', 'white'],
+        gender: "male",
+        dateOfBirth: "January 14"
+    }
+];
+
+
+// This is a statement:
+let newArr = hamsters.filter((hamster) => hamster.heightInMM > 85);
+console.log(newArr);
+
+//DAVID's SOLUTION:
+// This is a function
+    const getTallHamHams = arr => arr.filter(hamster => hamster.heighInMM > 85);
+console.log(getTallHamHams(hamsters));
+
+
 </script>
 
 
