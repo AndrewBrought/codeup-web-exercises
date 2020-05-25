@@ -13,17 +13,17 @@ function userHistory(username, API_KEY) {
 userHistory("AndrewBrought", GITHUB_API_KEY)
 
 
+function wait(num) {
 
-// const newPromise = new Promise((resolve, reject) => {
-//     setTimeout(() => {
-//         if (value === 1000) {  // this math is like flipping a coin
-//             resolve('You\'ll see this after 1 second');
-//         } else if(value === 3000) {
-//            resolve('You\'ll see this after 3 seconds');
-//         } else{
-//             reject('Your API request failed');
-//         }
-//     }, num);
-// });
-//
-// function
+    setTimeout(() => {
+        if (num === 1000) {  // this math is like flipping a coin
+            console.log('You\'ll see this after 1 second');
+        } else if (num === 3000) {
+           console.log('You\'ll see this after 3 seconds');
+        } else {
+            console.error('Your API request failed');
+        }
+    }, num);
+}
+wait(3000);
+// console.log(wait(1000));
