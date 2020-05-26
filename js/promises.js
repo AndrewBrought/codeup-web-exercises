@@ -2,16 +2,32 @@
 
 
 
-function userHistory(username, API_KEY) {
-    var Key = fetch(`https://api.github.com/users/${username}/events/public`, {
-        headers: {'Authorization': `token ${API_KEY}`}})
+// function recentUserHistory(username, API_KEY) {
+//     var Key = fetch(`https://api.github.com/users/${username}/events/public`, {
+//         headers: {'Authorization': `token ${API_KEY}`}})
+//
+//         Key.then(response => response.json())
+//             // we want to filter through pushEvents only           // this is referring to the created at property of the most recent "PushEvent"
+//             .then(events => console.log(new Date(events.filter(event => event.type === "PushEvent")[0].created_at).toDateString()));
+//          //Practice talking through this
+// }
+// recentUserHistory("AndrewBrought", GITHUB_API_KEY)
 
-        Key.then(response => response.json())
+//WALKTHROUGH - SOPHIE'S SOLUTION:
 
-            .then(jsonResponse => console.log(new Date(jsonResponse.filter(user => user.type === "PushEvent")[0].created_at).toDateString()));
-         //Practice talking through this
+
+function recentUserHistory(username, API_KEY) {
+    return fetch(`https://api.github.com/users/${username}/events/public`, {
+        headers: {'Authorization': `token ${API_KEY}`}}).then(response => response.json())
+        // we want to filter through pushEvents only      // this is referring to the created at property of the most recent "PushEvent"
+        .then(events => {
+        return events.filter(event => event.type === "PushEvent")[0].created_at;
+        });
 }
-userHistory("AndrewBrought", GITHUB_API_KEY)
+// Function Call
+recentUserHistory("AndrewBrought", GITHUB_API_KEY).then(date => {
+   console.log(new Date(date));
+});
 
 
 // function wait(num) {
@@ -33,7 +49,7 @@ userHistory("AndrewBrought", GITHUB_API_KEY)
 function wait(num) {
     return new Promise ((resolve, reject) => {
     setTimeout(() => {
-            if (Number.isInteger(num/1000)) {  // this math is like flipping a coin
+            if (Number.isInteger(num/1000)) {
                 resolve("You'll see this after " + num/1000 + " second(s).");
             } else {
                 reject(num + " is not a millisecond. Promise rejected!");
@@ -46,6 +62,28 @@ function wait(num) {
 wait(1000).then(message => console.log(message));
 wait(3).catch(message => console.log(message));
 wait(3000).then(message => console.log(message));
+
+// ...for my code I would then add a condition to differentiate between seconds and second.
+
+// WALKTHROUGH SOPHIE'S SOLUTION:
+
+function wait(seconds){
+    seconds = seconds * 1000;
+    return new Promise(resolve => {
+        setTimeout(()=> {
+            if(seconds > 1000){
+                console.log("You\'ll see this after " + seconds/1000 + " seconds");
+            } else{
+                console.log("You\'ll see this after " + seconds/1000 + " second");
+            }
+        }, seconds)
+
+    });
+
+}
+wait(1);
+wait(2);
+wait(3);
 
 
 // wait(3000).then(() => console.log('You\'ll see this after 3 seconds'));
