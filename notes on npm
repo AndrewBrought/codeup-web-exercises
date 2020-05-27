@@ -1,0 +1,57 @@
+Warm Up
+With your breakout members, discuss and agree on answers to each of these questions...
+(expect to be randomly called on to answer these questions)
+
+
+What is ES6 and why is it useful?
+It's a modified approach to writing functions to streamline the results.  Makes things easier to read an write.
+(syntactical sugar).
+
+
+Why are map, filter and reduce methods useful?
+Helps condence the code and allows for transformed values without mutating the original value.  Also allow's you to chain the methods to get detailed returns
+
+
+What are JS Promises and why are they useful?
+Ensures asynchronus behavior multiple requests and custom promises
+Provides a more standardized language to do those things...which help make things more simple
+
+
+What is node and why is it useful?
+node allows you to interact with javascript from the terminal, and allows it to run in a separate runtime environment
+Example allows you to write backend logic by being able to utilize node.
+
+
+What is npm and why is it useful?
+node package management allows us to manage downloads for libraries and manage the packages themselves so that we don't have to build everything from scratch.
+We're able to install a lot of different tools and be up and running quickly
+
+
+In an npm project, what is the purpose of the node_modules folder?
+The node_modules folder holds the libraries and plugins from the packages in one location
+
+
+In an npm project, what is the purpose of the package.json file?
+It's the project manager file that
+It's a manifest - list of things that we need
+
+
+What is Babel and why is it useful?
+Babel is a transpiler...transpiles es6 to es5
+
+
+What is Webpack and why is it useful?
+Webpack is a tool to bundle js to spit out to main.js file
+Able to use transpilers with module bundling, Mainly bundles projects together
+
+ex:
+our-code.js
+bootstrap.js
+jquery.js
+lodash.js
+mapbox.js
+..
+..
+..
+webpack rolls up all of this code and spits it out to a single file of code that communicates to our html
+Keeps it separated in a way that makes it less complicated...
